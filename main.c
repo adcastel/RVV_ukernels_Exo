@@ -33,6 +33,11 @@ int main(int argc, char * argv []) {
   printf("TEST STARTING...!\n");
   // Calling scheduled matmul
   ukrFunction ukr = *ukrmatrix[M][N];
+  if (ukr == NULL){
+    printf("Error! The desired ukernel does not exist!");
+    return -1;
+  }
+
   start = clock();
   for (int i = 0; i < reps; i++){
       ukr(NULL, K, &alpha, A,B, &beta, (struct exo_win_2f32){Ce,{M,1}});
