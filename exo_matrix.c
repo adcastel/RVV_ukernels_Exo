@@ -4,6 +4,8 @@ ukrFunction*** allocateMatrix() {
 	ukrFunction*** matrix = (ukrFunction***)malloc(25 * sizeof(ukrFunction**));
         for (int i = 0; i < 25; i++) {
 		matrix[i] = (ukrFunction**)malloc(25 * sizeof(ukrFunction*));
+                for (int j = 0; j < 25; j++) {
+		matrix[i][j] = (ukrFunction*)malloc(25 * sizeof(ukrFunction));
 	}
 	return matrix;
 }
@@ -611,7 +613,6 @@ void fillMatrix(ukrFunction*** matrix) {
 	*matrix[23][22] = gemm_RISCV_23x22_col_f32;
 	*matrix[23][23] = gemm_RISCV_23x23_col_f32;
 	*matrix[23][24] = gemm_RISCV_23x24_col_f32;
-	
 	*matrix[24][0] = NULL;
 	*matrix[24][1] = (ukrFunction) gemm_RISCV_24x1_col_f32;
 	*matrix[24][2] = gemm_RISCV_24x2_col_f32;
