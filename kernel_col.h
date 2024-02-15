@@ -1,7 +1,7 @@
 
 #pragma once
-#ifndef KERNEL_COL_H
-#define KERNEL_COL_H
+#ifndef KERNEL_H
+#define KERNEL_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -42,18 +42,6 @@ struct exo_win_2f32{
     float * const data;
     const int_fast32_t strides[2];
 };
-
-/*
-typedef void (*ukrFunction)(void *ctxt, int_fast32_t KC, const float* alpha, const float* A, const float* B, const float* beta, struct exo_win_2f32 C);
-
-
-ukrFunction*** allocateMatrix();
-void fillMatrix(ukrFunction*** matrix);
-void freeMatrix(ukrFunction*** matrix);
-*/
-
-
-
 // gemm_RISCV_10x10_col_f32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
@@ -5819,4 +5807,4 @@ void gemm_RISCV_9x9_col_f32( void *ctxt, int_fast32_t KC, const float* alpha, co
 #ifdef __cplusplus
 }
 #endif
-#endif  // KERNEL_COL_H
+#endif  // KERNEL_H

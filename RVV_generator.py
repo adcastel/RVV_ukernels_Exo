@@ -32,8 +32,8 @@ def test_tmp(MR,NR):
         t = autofission(t, t.find('{}[j,{} + itt] = _'.format('C',desp)).before(), n_lifts=3)
         t = simplify(t)
         t = set_memory(t, 'C_regt', RVV)
-        t = replace_all(t, intrinsics['load'])
-        t = replace_all(t, intrinsics['store'])
+        #t = replace_all(t, intrinsics['load'])
+        #t = replace_all(t, intrinsics['store'])
         t = simplify(t)
         Buf = 'A'
         Xreg='{}_regt'.format(Buf)
@@ -43,7 +43,7 @@ def test_tmp(MR,NR):
         t = lift_alloc(t, Xreg, n_lifts=3)
         t = autofission(t, t.find('{}[_] = _'.format(Xreg)).after(),n_lifts=2)
         t = set_memory(t, 'A_regt', RVV)
-        t = replace(t, t.find('for itt in _:_'),intrinsics['load'])
+        #t = replace(t, t.find('for itt in _:_'),intrinsics['load'])
         t = simplify(t)
         scal = 'B'
         scr = '{}_regt'.format(scal)
@@ -57,9 +57,9 @@ def test_tmp(MR,NR):
         t = autofission(t, t.find('{}[_] = _'.format(scr)).after(), n_lifts=2)
         t = set_memory(t, 'B_regt', RVV)
         #print(t)
-        t = replace(t, t.find('for itt in _:_'),intrinsics['bcast'])
+        #t = replace(t, t.find('for itt in _:_'),intrinsics['bcast'])
     
-        t = replace(t, t.find('for itt in _:_'),intrinsics['fmla'])
+        #t = replace(t, t.find('for itt in _:_'),intrinsics['fmla'])
 
         t = simplify(t)
     
@@ -183,8 +183,8 @@ def test_tmp(MR,NR):
     p = simplify(p)
     
     p = set_memory(p, 'C_reg', RVV)
-    p = replace_all(p, intrinsics['load'])
-    p = replace_all(p, intrinsics['store'])
+    #p = replace_all(p, intrinsics['load'])
+    #p = replace_all(p, intrinsics['store'])
     
     Buf = 'A'
     Xreg='{}_reg'.format(Buf)
@@ -196,7 +196,7 @@ def test_tmp(MR,NR):
     p = lift_alloc(p, Xreg, n_lifts=4)
     p = autofission(p, p.find('{}[_] = _'.format(Xreg)).after(),n_lifts=3)
     p = set_memory(p, 'A_reg', RVV)
-    p = replace(p, p.find('for itt in _:_'),intrinsics['load'])
+    #p = replace(p, p.find('for itt in _:_'),intrinsics['load'])
     
     scal = 'B'
     scr = '{}_reg'.format(scal)
@@ -210,11 +210,12 @@ def test_tmp(MR,NR):
     
     p = simplify(p)
     p = set_memory(p, 'B_reg', RVV)
-    p = replace(p, p.find('for itt in _:_'),intrinsics['bcast'])
-    p = replace(p, p.find('for itt in _:_'),intrinsics['fmla'])
+    #p = replace(p, p.find('for itt in _:_'),intrinsics['bcast'])
+    #p = replace(p, p.find('for itt in _:_'),intrinsics['fmla'])
     
     if MR % LANE != 0:
         p = make_tail(p, (MR//LANE)*LANE)
+    
     while True:
         try:
             p = unroll_loop(p, "it")
@@ -244,10 +245,37 @@ def test_tmp(MR,NR):
         p = fuse(p,'for k in _:_ #0','for k in _:_ #1')
         p = reorder_up(p, "for j in _:_ #4",n=2)
         p = reorder_up(p, "for j in _:_ #3",n=1)
-        p = reorder_up(p, "for j in _:_ #3",n=1)
-        p = reuse_buffer(p, 'B_reg','B_regt')
+        """
+        if MR // LANE == 2:
+            up1 = 13 #3 C + 1 Ct + 3 A + 2 B + 3 C -> 13x5 MR//LANE + 1 + MR//LANE + 2 + MR//LANE
+            up2 = 9 # 3 C + 1 Ct + 3 A + 2B -> MR//LANE + 1 + MR//LANE + 2
+            up3 = 8 # MR//LANE + 1 + MR//LANE + 1
+        elif MR // LANE == 1:
+            up1 = 9  #10x7 2 + 1 + 2 + 2 + 2
+            up2 = 7  #     2 + 1 + 2 + 2
+            up3 = 6  #     2 + 1 + 2 + 1
+        else:
+            up1 = 6  # 5x7 1 + 1 + 1 + 2 + 1
+            up2 = 5
+            up3 = 4
+        """
+        up1 = MR//LANE + 1 + MR//LANE + 2 + MR//LANE
+        up2 = MR//LANE + 1 + MR//LANE + 2 
+        up3 = MR//LANE + 1 + MR//LANE + 1 
+        p = reorder_up(p, "for itt in _:_ #{}".format(up1),n=1)
+        p = reorder_up(p, "for itt in _:_ #{}".format(up2),n=1)
+        p = reorder_up(p, "for itt in _:_ #{}".format(up3),n=1)
+        #print("-------------2------------\n",p)
+        #a = input()
+        #p = fuse(p,'for j in _:_ #4','for j in _:_ #5')
+        #print("-------------3------------\n",p)
+        #a = input()
+        #p = reuse_buffer(p, 'B_reg','B_regt')
+        #print("-------------3------------\n",p)
+        #a = input()
     else:
         
+        p = moveup(p, "B_regt : _")
         p = moveup(p, "B_reg : _")
         p = moveup(p, "A_regt : _")
         p = moveup(p, "A_reg : _")
@@ -258,7 +286,13 @@ def test_tmp(MR,NR):
             p = unroll_loop(p, "j")
         except:
             break;
+    p = replace_all(p,intrinsics['bcast'])
+    p = replace_all(p,intrinsics['store'])
+    p = replace_all(p,intrinsics['load'])
+    p = replace_all(p,intrinsics['fmla'])
     p = simplify(p)
+    if MR % LANE != 0:
+        p = reuse_buffer(p, 'B_reg','B_regt')
     p=unrollbuffers(p, "C_reg")
     for i in range(NR):
         p=unrollbuffers(p, "C_reg_{}".format(i))
@@ -266,7 +300,9 @@ def test_tmp(MR,NR):
     p=unrollbuffers(p, "B_reg")
     if MR % LANE != 0:
         p=unrollbuffers(p, "C_regt")
-    
+    #if MR % LANE != 0:
+   #     p=unrollbuffers(p, "B_regt")
+    #    p = reuse_buffer(p, 'B_reg','B_regt')
     print("FINAL",p)
     return p
     #p = reorder_stmts(p, "for j in _:_ #3\nfor j in _:_ #4")
@@ -291,8 +327,8 @@ def test_tmp(MR,NR):
     #    p = autofission(p, p.find('{}[_] = _'.format(scr)).after(), n_lifts=2)
     #    p = lift_alloc(p, scr, n_lifts=3)
 
-for i in range(25):
-    for j in range(25):
+for i in range(1,25,1):
+    for j in range(1,25,1):
         if i == 0 or j == 0:
             continue
         else:

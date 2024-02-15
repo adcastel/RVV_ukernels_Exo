@@ -5,7 +5,8 @@ ukrFunction*** allocateMatrix() {
         for (int i = 0; i < 25; i++) {
 		matrix[i] = (ukrFunction**)malloc(25 * sizeof(ukrFunction*));
                 for (int j = 0; j < 25; j++) {
-		matrix[i][j] = (ukrFunction*)malloc(25 * sizeof(ukrFunction));
+		    matrix[i][j] = (ukrFunction*)malloc(25 * sizeof(ukrFunction));
+		}
 	}
 	return matrix;
 }
