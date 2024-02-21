@@ -4,7 +4,7 @@ from exo import proc
 from exo.platforms.rvv import *
 from exo.stdlib.scheduling import *
 
-def test_tmp(MR,NR):
+def test_tmp(MR,NR,beta0):
     @proc
     def ukernel_beta0(
             KC: size,
@@ -23,7 +23,7 @@ def test_tmp(MR,NR):
                     
     
     def make_tail(t,desp):
-        t = stage_mem(t, "C[_] += _", "C[j,{} + itt]".format(desp), "C_regt")
+        t = stage_mem(t, "C[_] += _", "C[j,{} + itt]".format(desp), "C_regt", init_zero=beta0)
         t = expand_dim(t, 'C_regt', LANE, 'itt', unsafe_disable_checks=True)
         t = expand_dim(t, 'C_regt', NR, 'j', unsafe_disable_checks=True)
         t = lift_alloc(t, 'C_regt', n_lifts=3)
@@ -88,7 +88,7 @@ def test_tmp(MR,NR):
     def make_tail_ok(t):
         t = t.partial_eval(MR=MR, NR=NR)
         #t = set_window(t, "C", True)
-        t = stage_mem(t, "C[_] += _", "C[j,i]".format(LANE), "C_reg")
+        t = stage_mem(t, "C[_] += _", "C[j,i]".format(LANE), "C_reg", init_zero=beta0)
         t = expand_dim(t, 'C_reg', LANE, 'i', unsafe_disable_checks=True)
         t = expand_dim(t, 'C_reg', NR, 'j', unsafe_disable_checks=True)
         t = lift_alloc(t, 'C_reg', n_lifts=3)
@@ -96,7 +96,7 @@ def test_tmp(MR,NR):
         t = autofission(t, t.find('{}[j,i] = _'.format('C',LANE)).before(), n_lifts=3)
         t = simplify(t)
         t = set_memory(t, 'C_reg', RVV)
-        t = replace_all(t, intrinsics['load'])
+        t = replace_all(t, intrinsics['load'] if beta0 == False else  intrinsics['zeros'])
         t = replace_all(t, intrinsics['store'])
         t = simplify(t)
         Buf = 'A'
@@ -149,8 +149,10 @@ def test_tmp(MR,NR):
     
     
     p=ukernel_beta0
-    p = rename(p, "gemm_{}_{}x{}_{}_{}".format("RISCV", MR,NR,"col","f32"))
+    p = rename(p, "gemm_{}_{}x{}_b{}_{}_{}".format("RISCV", MR,NR, 0 if beta0 else 1, "col","f32"))
     p = set_window(p, "C", True)
+    p = set_window(p, "A", True)
+    p = set_window(p, "B", True)
     if MR <= LANE:
        p = make_tail_ok(p)
        p = simplify(p)
@@ -165,8 +167,7 @@ def test_tmp(MR,NR):
     p = simplify(p)
     if MR % LANE != 0:
         p = autofission(p, p.find("for itt in _:_ #1").before(),n_lifts=2)
-    print("1",p)
-    p = stage_mem(p, "C[_] += _", "C[j,itt + {} * it]".format(LANE), "C_reg") #REGISTERS FOR MULTIPLE OF LANE
+    p = stage_mem(p, "C[_] += _", "C[j,itt + {} * it]".format(LANE), "C_reg", init_zero=beta0) #REGISTERS FOR MULTIPLE OF LANE
     
     
     # PREPARE REGISTERS FOR MULTIPLE
@@ -286,6 +287,7 @@ def test_tmp(MR,NR):
             p = unroll_loop(p, "j")
         except:
             break;
+    p = replace_all(p,intrinsics['zeros'])
     p = replace_all(p,intrinsics['bcast'])
     p = replace_all(p,intrinsics['store'])
     p = replace_all(p,intrinsics['load'])
@@ -333,4 +335,5 @@ for i in range(1,25,1):
             continue
         else:
             print("GENERATING {}x{}".format(i,j))
-            locals()['uk_{0}x{1}'.format(i,j)] = test_tmp(MR=i, NR=j)
+            locals()['uk_{0}x{1}_b{2}'.format(i,j,False)] = test_tmp(MR=i, NR=j, beta0=False)
+            locals()['uk_{0}x{1}_b{2}'.format(i,j,True)] = test_tmp(MR=i, NR=j, beta0=True)

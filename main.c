@@ -30,8 +30,9 @@ int main(int argc, char * argv []) {
   int Nf = atoi(argv[4]);
   int K = atoi(argv[5]);
   int reps = atoi(argv[6]);
+  int beta0 = 1;
   ukrFunction*** ukrmatrix = allocateMatrix();
-  fillMatrix(ukrmatrix);
+  fillMatrix(ukrmatrix,beta0);
   float alpha = 1.0;
   float beta = 1.0;
   double GF[25][25] = {{0.0}};
@@ -41,11 +42,11 @@ int main(int argc, char * argv []) {
   float * Ce = malloc(sizeof(float)*Mf*Nf);
   initialize(Mf,Nf,K, A, B, C, Ce);
   ukrFunction ukr_au = *ukrmatrix[Mi][Ni];
-  ukr_au(NULL, K, &alpha, A,B, &beta, (struct exo_win_2f32){Ce,{Mi,1}});
+  ukr_au(NULL, K, &alpha, (struct exo_win_2f32c){A,{Mi,1}},(struct exo_win_2f32c) {B,{Ni,1}}, &beta, (struct exo_win_2f32){Ce,{Mi,1}});
   
   for (int ii =Mi; ii<=Mf; ii++){
 	  for(int jj=Ni;jj<=Nf;jj++){
-              int M = ii; int N = jj; int K=512;
+              int M = ii; int N = jj;
 	      double gflops = (2.0*M*N*K)/1e9;
 
 	      ukrFunction ukr = *ukrmatrix[M][N];
@@ -56,7 +57,12 @@ int main(int argc, char * argv []) {
 
              start = dclock();
              for (int s = 0; s < reps; s++){
-                 ukr(NULL, K, &alpha, A,B, &beta, (struct exo_win_2f32){Ce,{M,1}});
+                 //ukr(NULL, K, &alpha, A,B, &beta, (struct exo_win_2f32){Ce,{M,1}});
+                 ukr(NULL, K, &alpha, 
+				 (struct exo_win_2f32c){A,{M,1}},
+				 (struct exo_win_2f32c){B,{N,1}}, 
+				 &beta, 
+				 (struct exo_win_2f32){Ce,{M,1}});
              }
              end = dclock();
 
@@ -119,12 +125,12 @@ void simplegemm(int M, int N, int K, const float * A, const float * B, float *C)
 void initialize(int M, int N,int K,float * A, float *B, float *C, float *Ce) {
   for (int i = 0; i < M; i++) {
     for (int j = 0; j < K; j++) {
-      A[i * K + j] = (i * K + j) * 0.1;//*0.1;//3.2;
+      A[i * K + j] = (rand())/RAND_MAX; //(i * K + j) * 0.1;//*0.1;//3.2;
     }
   }
   for (int i = 0; i < K; i++) {
     for (int j = 0; j < N; j++) {
-      B[i * N + j] = (i * N + j)*0.2;//*0.2;
+      B[i * N + j] = (rand())/RAND_MAX; //(i * N + j)*0.2;//*0.2;
     }
   }
   for (int i = 0; i < M; i++) {
