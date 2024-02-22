@@ -2,7 +2,7 @@ CC=/home/adcastel/opt/riscv/bin/riscv64-unknown-linux-gnu-gcc
 #CFLAGS= -O0 -g3 -march=rv64gcv_zfh_xtheadc -mabi=lp64d
 CFLAGS= -O3 -march=rv64gcv
 
-OBJECTS := exo_matrix.o kernel_col.o
+OBJECTS := exo_matrix.o kernels/RVV/kernel_col.o
 #OBJECTS := exo_matrix.o
 
 all:main
