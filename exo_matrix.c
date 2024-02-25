@@ -13,7 +13,6 @@ ukrFunction*** allocateMatrix() {
 
 
 void fillMatrix(ukrFunction*** matrix, int beta0) {
-	
        if (beta0 == 0){	
 	*matrix[0][0]   = (ukrFunction)NULL;
 	*matrix[0][1]   = (ukrFunction)NULL;
