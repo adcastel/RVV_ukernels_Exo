@@ -15,7 +15,11 @@ def ukr_rvv(MR,NR,LANE,beta0,swapAB=False):
             B: f32[KC, NR] @ DRAM,
             beta: f32[1],
             C: f32[NR, MR] @ DRAM,
-            ):   
+            ):
+        #assert stride(A,0) == 8
+        assert stride(A,1) == 1 
+        #assert stride(B,0) == 12
+        assert stride(B,1) == 1
         for k in seq(0, KC): 
             for j in seq(0, NR): 
                 for i in seq(0, MR): 
@@ -169,7 +173,6 @@ def ukr_rvv(MR,NR,LANE,beta0,swapAB=False):
         p = autofission(p, p.find("for itt in _:_ #1").before(),n_lifts=2)
     p = stage_mem(p, "C[_] += _", "C[j,itt + {} * it]".format(LANE), "C_reg", init_zero=beta0) #REGISTERS FOR MULTIPLE OF LANE
     
-    
     # PREPARE REGISTERS FOR MULTIPLE
     p = expand_dim(p, 'C_reg', LANE, 'itt', unsafe_disable_checks=True)
     p = expand_dim(p, 'C_reg', MR//LANE, 'it', unsafe_disable_checks=True)
@@ -255,8 +258,9 @@ def ukr_rvv(MR,NR,LANE,beta0,swapAB=False):
         p = moveup(p, "B_reg : _")
         p = moveup(p, "A_regt : _")
         p = moveup(p, "A_reg : _")
-        print("perfect", p)
     
+    #if MR % LANE != 0:
+    #    p = fuse(p,'for j in _:_ #2','for j in _:_ #3')
     while True:
         try:
             p = unroll_loop(p, "j")
@@ -270,6 +274,9 @@ def ukr_rvv(MR,NR,LANE,beta0,swapAB=False):
     p = simplify(p)
     if MR % LANE != 0:
         p = reuse_buffer(p, 'B_reg','B_regt')
+     #   p = merge_writes(p, 'rvv_broadcast_4xf32(B_reg_0[0:4], B[k, 0:1], 1);  rvv_broadcast_4xf32(B_reg_0[0:4], B[k, 0:1], 4)')
+     #   print(p)
+        #"tmp[0] = x[0]; tmp[0] = y[0]"
     p=unrollbuffers(p, "C_reg")
     for i in range(NR):
         p=unrollbuffers(p, "C_reg_{}".format(i))
@@ -281,13 +288,13 @@ def ukr_rvv(MR,NR,LANE,beta0,swapAB=False):
     return p
 
 lane = 4
-swapAB = True
+swapAB = False
 
-for i in range(1,25,1):
-    for j in range(1,25,1):
+for i in range(9,10,1):
+    for j in range(3,4,1):
         if i == 0 or j == 0:
             continue
         else:
             print("GENERATING {}x{}".format(i,j))
-            locals()['uk_{0}x{1}_b{2}'.format(i,j,False)] = ukr_rvv(MR=i, NR=j, LANE = lane, beta0=False, swapAB=swapAB)
+            #locals()['uk_{0}x{1}_b{2}'.format(i,j,False)] = ukr_rvv(MR=i, NR=j, LANE = lane, beta0=False, swapAB=swapAB)
             locals()['uk_{0}x{1}_b{2}'.format(i,j,True)]  = ukr_rvv(MR=i, NR=j, LANE = lane, beta0=True,  swapAB=swapAB)
