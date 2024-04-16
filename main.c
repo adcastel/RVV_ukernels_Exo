@@ -2,7 +2,6 @@
 #include <time.h>
 #include <sys/time.h>
 
-//#include "kernel_col.h"
 #include "exo_matrix.h"
 
 #define Aref(a1,a2)  A[ (a2)*(Alda)+(a1) ]
@@ -29,10 +28,10 @@ int main(int argc, char * argv []) {
   int Ni = atoi(argv[3]);
   int Nf = atoi(argv[4]);
   int K = atoi(argv[5]);
-  int reps = atoi(argv[6]);
-  int beta0 = 1;
-  ukrFunction*** ukrmatrix = allocateMatrix();
-  fillMatrix(ukrmatrix,beta0);
+  int beta0 = atoi(argv[6]);
+  int reps = atoi(argv[7]);
+  ukrFunction**** ukrmatrix = allocateMatrix();
+  fillMatrix(ukrmatrix);
   float alpha = 1.0;
   float beta = 1.0;
   double GF[25][25] = {{0.0}};
@@ -41,7 +40,7 @@ int main(int argc, char * argv []) {
   float * C = malloc(sizeof(float)*Mf*Nf);
   float * Ce = malloc(sizeof(float)*Mf*Nf);
   initialize(Mf,Nf,K, A, B, C, Ce);
-  ukrFunction ukr_au = *ukrmatrix[Mi][Ni];
+  ukrFunction ukr_au = *ukrmatrix[Mi][Ni][beta0];
   ukr_au(NULL, K, &alpha, (struct exo_win_2f32c){A,{Mi,1}},(struct exo_win_2f32c) {B,{Ni,1}}, &beta, (struct exo_win_2f32){Ce,{Mi,1}});
   
   for (int ii =Mi; ii<=Mf; ii++){
@@ -49,7 +48,7 @@ int main(int argc, char * argv []) {
               int M = ii; int N = jj;
 	      double gflops = (2.0*M*N*K)/1e9;
 
-	      ukrFunction ukr = *ukrmatrix[M][N];
+	      ukrFunction ukr = *ukrmatrix[M][N][beta0];
               if (ukr == NULL){
                  printf("Error! The desired ukernel does not exist!\n");
                 return -1;
