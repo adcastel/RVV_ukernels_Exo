@@ -1,4 +1,6 @@
 CC=/home/adcastel/opt/riscv/bin/riscv64-unknown-linux-gnu-gcc
+
+#CFLAGS= -O3 -march=rv64gc0p7v
 CFLAGS= -O3 -march=rv64gcv
 
 KPATH=kernels/RVV/
