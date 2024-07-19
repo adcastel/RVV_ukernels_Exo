@@ -1,4 +1,4 @@
-CC=/home/adcastel/opt/riscv/bin/riscv64-unknown-linux-gnu-gcc
+CC=/home/adcastel/opt/riscv/bin/riscv64-unknown-linux-gnu-gcc -static
 
 #CFLAGS= -O3 -march=rv64gc0p7v
 CFLAGS= -O3 -march=rv64gcv

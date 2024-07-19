@@ -357,10 +357,15 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, gather=False):
     
     if prec=="fp32":
         precision="f32"
-        LANE=4
-        intrinsics = {'load': rvv_vld_4xf32, 'store': rvv_vst_4xf32, 'fmla':  rvv_vfmacc_4xf32_4xf32,
+        LANE=lane
+        if LANE == 4:
+            intrinsics = {'load': rvv_vld_4xf32, 'store': rvv_vst_4xf32, 'fmla':  rvv_vfmacc_4xf32_4xf32,
                          'bcast': rvv_broadcast_4xf32, 'zeros': rvv_broadcast_4xf32_0, 'bcast_scalar': rvv_broadcast_4xf32_scalar,
                          'gather':rvv_gather_4xf32}
+        else:
+            intrinsics = {'load': rvv_vld_8xf32, 'store': rvv_vst_8xf32, 'fmla':  rvv_vfmacc_8xf32_8xf32,
+                         'bcast': rvv_broadcast_8xf32, 'zeros': rvv_broadcast_8xf32_0, 'bcast_scalar': rvv_broadcast_8xf32_scalar,
+                         'gather':rvv_gather_8xf32}
     elif prec=="fp16":
         precision="f16"
         LANE=8
@@ -992,26 +997,22 @@ def howmanyregs(M,N, lane):
     return reg_a + reg_b + reg_c
 
 
-m, n, lane, pre, swapAB, gather = (int(x) for x in input().split())
+m, n, lane, pre, swapAB, gather, regs = (int(x) for x in input().split())
 #lane = 4
 pr="fp{}".format(pre)
 swapAB = bool(swapAB)
 gather = bool(gather)
-
+mr = emr = m
+nr = enr = n
 print(m, n, lane, pre, swapAB, gather)
 maxi = maxj = 0
-for i in range(1,m,1):
-    for j in range(1,n,1):
-        if i == 0 or j == 0: # or howmanyregs(i,j,lane) > 50:
-            continue
-        else:
+
+if howmanyregs(emr, enr, lane) <= regs:
+    for i in range(1,mr+1,1):
+        for j in range(1,nr+1,1):
             print("GENERATING {}x{} with {} registers".format(i,j, howmanyregs(i,j,lane)))
             locals()['uk_{0}x{1}_b{2}'.format(i,j,False)] = ukr_rvv(MR=i, NR=j, prec=pr, LANE = lane, beta0=False, swapAB=swapAB, gather=gather)
             locals()['uk_{0}x{1}_b{2}'.format(i,j,True)]  = ukr_rvv(MR=i, NR=j, prec=pr, LANE = lane, beta0=True,  swapAB=swapAB, gather=gather)
-            if i > maxi:
-                maxi = i
-            if j > maxj:
-                maxj = j
 
 #from generate_matrix import generate_file
 

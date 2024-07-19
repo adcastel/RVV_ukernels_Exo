@@ -1,30 +1,75 @@
 #/bin/bash
 
-for pr in 32; 
-do 
-	for swap in 0 1; 
-	do  
-		for gather in 0 1; 
-		do  
-			#if ! test -f kernels/kernel_${i}x${j}_b${b}.c ; then
-			if [ ${swap} -eq 1 ]; then
-				ss="swapAB_"
-			else
-				ss=""
-			fi    
-			if [ ${gather} -eq 1 ]; then
-				gg="gather"
-			else
-				gg="bcast"
-			fi    
-			if [ ${pr} -eq 16 ]; then
-				ll=8
-			else
-				ll=4
-			fi    
-			if ! test -f pruebas/kernels_rvv_${gg}_${ss}fp${pr}.c ; then
-			    echo "25 25 ${ll} ${pr} ${swap} ${gather}" | exocc -o pruebas --stem kernels_rvv_${gg}_${ss}fp${pr} RVV_generator.py 
-			fi
- 		done; 
-	done; 
-done
+
+for ARCH in RVV
+do
+  for bits in 128 256;
+  do
+    export RVV_BITS=${bits}
+    for prec in 16; 
+    do 
+      for swap in 0 1; 
+      do  
+        for gather in 0 1; 
+	do 
+	  if [ $prec = 32 ]; then
+       	    if [ $bits = 128 ]; then
+	      ini=4
+	      end=24
+	      step=4
+	      lane=4
+	    else
+	      ini=8
+	      end=48
+	      step=8
+	      lane=8
+	   fi
+	 else #fp16
+       	   if [ $bits = 128 ]; then
+	     ini=8
+	     end=48
+	     step=8
+	     lane=8
+	  else
+	     ini=16
+	     end=96
+	     step=16
+	     lane=16
+	  fi
+	fi
+	if [ ${swap} -eq 1 ]; then
+	  ss="loadBA"
+	else
+	  ss="loadAB"
+	fi    
+	if [ ${gather} -eq 1 ]; then
+	  gg="gather"
+	else
+	  gg="bcast"
+	fi 
+        mkdir -p kernels
+	for mr in $(seq ${ini} ${step} ${end});
+        do
+	  for nr in $(seq ${ini} ${step} ${end});
+	  do	    
+	    ff=kernels_${ARCH}_${mr}x${nr}_fp${prec}
+	    dest=kernels/${ARCH}_${bits}/fp${prec}/${mr}x${nr}/${ss}/${gg}
+            echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 40 | exocc -o ${dest} --stem ${ff} RVV_generator.py" 
+            echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 40" | exocc -o ${dest} --stem ${ff} RVV_generator.py
+            if test -f ${dest}/${ff}.c; then
+	        echo "python3 exo_to_opt_converter.py ${dest}/${ff}.c ${dest}/${ff}.c 1 ${mr} ${nr} ${prec} ${ARCH}"
+	        python3 exo_to_opt_converter.py ${dest}/${ff}.c ${dest}/${ff}.c 1 ${mr} ${nr} ${prec} ${ARCH}
+	        echo "python3 exo_to_opt_converter.py ${dest}/${ff}.h ${dest}/${ff}.h 1 ${mr} ${nr} ${prec} ${ARCH}"
+	        python3 exo_to_opt_converter.py ${dest}/${ff}.h ${dest}/${ff}.h 1 ${mr} ${nr} ${prec} ${ARCH}
+		echo "python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}"
+		python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}
+	    else
+	      echo "${mr}x${nr} has not been build"
+	    fi
+          done;
+	done;
+      done;
+     done;
+    done;
+  done;
+done;
