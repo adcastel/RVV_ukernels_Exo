@@ -13,7 +13,7 @@ def how(M,N, lane, arch):
             N = math.ceil(N/lane)*lane
 
     reg_a = M//lane if M % lane == 0 else M//lane + 1
-    reg_b = N if arch == "RISCV" else N//lane
+    reg_b = N if arch == "RVV" else N//lane
     reg_c = N *  (M//lane if M % lane == 0 else M//lane + 1)
     
     return reg_a + reg_b + reg_c

@@ -46,7 +46,7 @@ struct exo_win_2f32c{
     const float * const data;
     const int_fast32_t strides[2];
 };
-// gemm_RISCV_1x10_b0_col_fp32(
+// gemm_RVV_1x10_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -54,9 +54,9 @@ struct exo_win_2f32c{
 //     beta : f32[1] @DRAM,
 //     C : [f32][10, 1] @DRAM
 // )
-void gemm_RISCV_1x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x10_b1_col_fp32(
+// gemm_RVV_1x10_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -64,9 +64,9 @@ void gemm_RISCV_1x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][10, 1] @DRAM
 // )
-void gemm_RISCV_1x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x11_b0_col_fp32(
+// gemm_RVV_1x11_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -74,9 +74,9 @@ void gemm_RISCV_1x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][11, 1] @DRAM
 // )
-void gemm_RISCV_1x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x11_b1_col_fp32(
+// gemm_RVV_1x11_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -84,9 +84,9 @@ void gemm_RISCV_1x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][11, 1] @DRAM
 // )
-void gemm_RISCV_1x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x12_b0_col_fp32(
+// gemm_RVV_1x12_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -94,9 +94,9 @@ void gemm_RISCV_1x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][12, 1] @DRAM
 // )
-void gemm_RISCV_1x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x12_b1_col_fp32(
+// gemm_RVV_1x12_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -104,9 +104,9 @@ void gemm_RISCV_1x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][12, 1] @DRAM
 // )
-void gemm_RISCV_1x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x1_b0_col_fp32(
+// gemm_RVV_1x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -114,9 +114,9 @@ void gemm_RISCV_1x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 1] @DRAM
 // )
-void gemm_RISCV_1x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x1_b1_col_fp32(
+// gemm_RVV_1x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -124,9 +124,9 @@ void gemm_RISCV_1x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 1] @DRAM
 // )
-void gemm_RISCV_1x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x2_b0_col_fp32(
+// gemm_RVV_1x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -134,9 +134,9 @@ void gemm_RISCV_1x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 1] @DRAM
 // )
-void gemm_RISCV_1x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x2_b1_col_fp32(
+// gemm_RVV_1x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -144,9 +144,9 @@ void gemm_RISCV_1x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 1] @DRAM
 // )
-void gemm_RISCV_1x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x3_b0_col_fp32(
+// gemm_RVV_1x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -154,9 +154,9 @@ void gemm_RISCV_1x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 1] @DRAM
 // )
-void gemm_RISCV_1x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x3_b1_col_fp32(
+// gemm_RVV_1x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -164,9 +164,9 @@ void gemm_RISCV_1x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 1] @DRAM
 // )
-void gemm_RISCV_1x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x4_b0_col_fp32(
+// gemm_RVV_1x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -174,9 +174,9 @@ void gemm_RISCV_1x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 1] @DRAM
 // )
-void gemm_RISCV_1x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x4_b1_col_fp32(
+// gemm_RVV_1x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -184,9 +184,9 @@ void gemm_RISCV_1x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 1] @DRAM
 // )
-void gemm_RISCV_1x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x5_b0_col_fp32(
+// gemm_RVV_1x5_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -194,9 +194,9 @@ void gemm_RISCV_1x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][5, 1] @DRAM
 // )
-void gemm_RISCV_1x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x5_b1_col_fp32(
+// gemm_RVV_1x5_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -204,9 +204,9 @@ void gemm_RISCV_1x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][5, 1] @DRAM
 // )
-void gemm_RISCV_1x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x6_b0_col_fp32(
+// gemm_RVV_1x6_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -214,9 +214,9 @@ void gemm_RISCV_1x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][6, 1] @DRAM
 // )
-void gemm_RISCV_1x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x6_b1_col_fp32(
+// gemm_RVV_1x6_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -224,9 +224,9 @@ void gemm_RISCV_1x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][6, 1] @DRAM
 // )
-void gemm_RISCV_1x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x7_b0_col_fp32(
+// gemm_RVV_1x7_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -234,9 +234,9 @@ void gemm_RISCV_1x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][7, 1] @DRAM
 // )
-void gemm_RISCV_1x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x7_b1_col_fp32(
+// gemm_RVV_1x7_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -244,9 +244,9 @@ void gemm_RISCV_1x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][7, 1] @DRAM
 // )
-void gemm_RISCV_1x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x8_b0_col_fp32(
+// gemm_RVV_1x8_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -254,9 +254,9 @@ void gemm_RISCV_1x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][8, 1] @DRAM
 // )
-void gemm_RISCV_1x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x8_b1_col_fp32(
+// gemm_RVV_1x8_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -264,9 +264,9 @@ void gemm_RISCV_1x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][8, 1] @DRAM
 // )
-void gemm_RISCV_1x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x9_b0_col_fp32(
+// gemm_RVV_1x9_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -274,9 +274,9 @@ void gemm_RISCV_1x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][9, 1] @DRAM
 // )
-void gemm_RISCV_1x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_1x9_b1_col_fp32(
+// gemm_RVV_1x9_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -284,9 +284,9 @@ void gemm_RISCV_1x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][9, 1] @DRAM
 // )
-void gemm_RISCV_1x9_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_1x9_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x10_b0_col_fp32(
+// gemm_RVV_2x10_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -294,9 +294,9 @@ void gemm_RISCV_1x9_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][10, 2] @DRAM
 // )
-void gemm_RISCV_2x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x10_b1_col_fp32(
+// gemm_RVV_2x10_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -304,9 +304,9 @@ void gemm_RISCV_2x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][10, 2] @DRAM
 // )
-void gemm_RISCV_2x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x11_b0_col_fp32(
+// gemm_RVV_2x11_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -314,9 +314,9 @@ void gemm_RISCV_2x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][11, 2] @DRAM
 // )
-void gemm_RISCV_2x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x11_b1_col_fp32(
+// gemm_RVV_2x11_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -324,9 +324,9 @@ void gemm_RISCV_2x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][11, 2] @DRAM
 // )
-void gemm_RISCV_2x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x12_b0_col_fp32(
+// gemm_RVV_2x12_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -334,9 +334,9 @@ void gemm_RISCV_2x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][12, 2] @DRAM
 // )
-void gemm_RISCV_2x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x12_b1_col_fp32(
+// gemm_RVV_2x12_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -344,9 +344,9 @@ void gemm_RISCV_2x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][12, 2] @DRAM
 // )
-void gemm_RISCV_2x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x1_b0_col_fp32(
+// gemm_RVV_2x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -354,9 +354,9 @@ void gemm_RISCV_2x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 2] @DRAM
 // )
-void gemm_RISCV_2x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x1_b1_col_fp32(
+// gemm_RVV_2x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -364,9 +364,9 @@ void gemm_RISCV_2x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 2] @DRAM
 // )
-void gemm_RISCV_2x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x2_b0_col_fp32(
+// gemm_RVV_2x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -374,9 +374,9 @@ void gemm_RISCV_2x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 2] @DRAM
 // )
-void gemm_RISCV_2x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x2_b1_col_fp32(
+// gemm_RVV_2x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -384,9 +384,9 @@ void gemm_RISCV_2x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 2] @DRAM
 // )
-void gemm_RISCV_2x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x3_b0_col_fp32(
+// gemm_RVV_2x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -394,9 +394,9 @@ void gemm_RISCV_2x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 2] @DRAM
 // )
-void gemm_RISCV_2x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x3_b1_col_fp32(
+// gemm_RVV_2x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -404,9 +404,9 @@ void gemm_RISCV_2x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 2] @DRAM
 // )
-void gemm_RISCV_2x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x4_b0_col_fp32(
+// gemm_RVV_2x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -414,9 +414,9 @@ void gemm_RISCV_2x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 2] @DRAM
 // )
-void gemm_RISCV_2x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x4_b1_col_fp32(
+// gemm_RVV_2x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -424,9 +424,9 @@ void gemm_RISCV_2x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 2] @DRAM
 // )
-void gemm_RISCV_2x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x5_b0_col_fp32(
+// gemm_RVV_2x5_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -434,9 +434,9 @@ void gemm_RISCV_2x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][5, 2] @DRAM
 // )
-void gemm_RISCV_2x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x5_b1_col_fp32(
+// gemm_RVV_2x5_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -444,9 +444,9 @@ void gemm_RISCV_2x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][5, 2] @DRAM
 // )
-void gemm_RISCV_2x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x6_b0_col_fp32(
+// gemm_RVV_2x6_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -454,9 +454,9 @@ void gemm_RISCV_2x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][6, 2] @DRAM
 // )
-void gemm_RISCV_2x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x6_b1_col_fp32(
+// gemm_RVV_2x6_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -464,9 +464,9 @@ void gemm_RISCV_2x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][6, 2] @DRAM
 // )
-void gemm_RISCV_2x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x7_b0_col_fp32(
+// gemm_RVV_2x7_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -474,9 +474,9 @@ void gemm_RISCV_2x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][7, 2] @DRAM
 // )
-void gemm_RISCV_2x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x7_b1_col_fp32(
+// gemm_RVV_2x7_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -484,9 +484,9 @@ void gemm_RISCV_2x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][7, 2] @DRAM
 // )
-void gemm_RISCV_2x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x8_b0_col_fp32(
+// gemm_RVV_2x8_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -494,9 +494,9 @@ void gemm_RISCV_2x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][8, 2] @DRAM
 // )
-void gemm_RISCV_2x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x8_b1_col_fp32(
+// gemm_RVV_2x8_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -504,9 +504,9 @@ void gemm_RISCV_2x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][8, 2] @DRAM
 // )
-void gemm_RISCV_2x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x9_b0_col_fp32(
+// gemm_RVV_2x9_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -514,9 +514,9 @@ void gemm_RISCV_2x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][9, 2] @DRAM
 // )
-void gemm_RISCV_2x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_2x9_b1_col_fp32(
+// gemm_RVV_2x9_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -524,9 +524,9 @@ void gemm_RISCV_2x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][9, 2] @DRAM
 // )
-void gemm_RISCV_2x9_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_2x9_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x10_b0_col_fp32(
+// gemm_RVV_3x10_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -534,9 +534,9 @@ void gemm_RISCV_2x9_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][10, 3] @DRAM
 // )
-void gemm_RISCV_3x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x10_b1_col_fp32(
+// gemm_RVV_3x10_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -544,9 +544,9 @@ void gemm_RISCV_3x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][10, 3] @DRAM
 // )
-void gemm_RISCV_3x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x11_b0_col_fp32(
+// gemm_RVV_3x11_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -554,9 +554,9 @@ void gemm_RISCV_3x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][11, 3] @DRAM
 // )
-void gemm_RISCV_3x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x11_b1_col_fp32(
+// gemm_RVV_3x11_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -564,9 +564,9 @@ void gemm_RISCV_3x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][11, 3] @DRAM
 // )
-void gemm_RISCV_3x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x12_b0_col_fp32(
+// gemm_RVV_3x12_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -574,9 +574,9 @@ void gemm_RISCV_3x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][12, 3] @DRAM
 // )
-void gemm_RISCV_3x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x12_b1_col_fp32(
+// gemm_RVV_3x12_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -584,9 +584,9 @@ void gemm_RISCV_3x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][12, 3] @DRAM
 // )
-void gemm_RISCV_3x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x1_b0_col_fp32(
+// gemm_RVV_3x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -594,9 +594,9 @@ void gemm_RISCV_3x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 3] @DRAM
 // )
-void gemm_RISCV_3x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x1_b1_col_fp32(
+// gemm_RVV_3x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -604,9 +604,9 @@ void gemm_RISCV_3x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 3] @DRAM
 // )
-void gemm_RISCV_3x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x2_b0_col_fp32(
+// gemm_RVV_3x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -614,9 +614,9 @@ void gemm_RISCV_3x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 3] @DRAM
 // )
-void gemm_RISCV_3x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x2_b1_col_fp32(
+// gemm_RVV_3x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -624,9 +624,9 @@ void gemm_RISCV_3x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 3] @DRAM
 // )
-void gemm_RISCV_3x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x3_b0_col_fp32(
+// gemm_RVV_3x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -634,9 +634,9 @@ void gemm_RISCV_3x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 3] @DRAM
 // )
-void gemm_RISCV_3x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x3_b1_col_fp32(
+// gemm_RVV_3x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -644,9 +644,9 @@ void gemm_RISCV_3x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 3] @DRAM
 // )
-void gemm_RISCV_3x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x4_b0_col_fp32(
+// gemm_RVV_3x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -654,9 +654,9 @@ void gemm_RISCV_3x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 3] @DRAM
 // )
-void gemm_RISCV_3x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x4_b1_col_fp32(
+// gemm_RVV_3x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -664,9 +664,9 @@ void gemm_RISCV_3x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 3] @DRAM
 // )
-void gemm_RISCV_3x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x5_b0_col_fp32(
+// gemm_RVV_3x5_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -674,9 +674,9 @@ void gemm_RISCV_3x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][5, 3] @DRAM
 // )
-void gemm_RISCV_3x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x5_b1_col_fp32(
+// gemm_RVV_3x5_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -684,9 +684,9 @@ void gemm_RISCV_3x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][5, 3] @DRAM
 // )
-void gemm_RISCV_3x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x6_b0_col_fp32(
+// gemm_RVV_3x6_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -694,9 +694,9 @@ void gemm_RISCV_3x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][6, 3] @DRAM
 // )
-void gemm_RISCV_3x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x6_b1_col_fp32(
+// gemm_RVV_3x6_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -704,9 +704,9 @@ void gemm_RISCV_3x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][6, 3] @DRAM
 // )
-void gemm_RISCV_3x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x7_b0_col_fp32(
+// gemm_RVV_3x7_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -714,9 +714,9 @@ void gemm_RISCV_3x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][7, 3] @DRAM
 // )
-void gemm_RISCV_3x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x7_b1_col_fp32(
+// gemm_RVV_3x7_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -724,9 +724,9 @@ void gemm_RISCV_3x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][7, 3] @DRAM
 // )
-void gemm_RISCV_3x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x8_b0_col_fp32(
+// gemm_RVV_3x8_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -734,9 +734,9 @@ void gemm_RISCV_3x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][8, 3] @DRAM
 // )
-void gemm_RISCV_3x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x8_b1_col_fp32(
+// gemm_RVV_3x8_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -744,9 +744,9 @@ void gemm_RISCV_3x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][8, 3] @DRAM
 // )
-void gemm_RISCV_3x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x9_b0_col_fp32(
+// gemm_RVV_3x9_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -754,9 +754,9 @@ void gemm_RISCV_3x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][9, 3] @DRAM
 // )
-void gemm_RISCV_3x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_3x9_b1_col_fp32(
+// gemm_RVV_3x9_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -764,9 +764,9 @@ void gemm_RISCV_3x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][9, 3] @DRAM
 // )
-void gemm_RISCV_3x9_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_3x9_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x10_b0_col_fp32(
+// gemm_RVV_4x10_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -774,9 +774,9 @@ void gemm_RISCV_3x9_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][10, 4] @DRAM
 // )
-void gemm_RISCV_4x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x10_b1_col_fp32(
+// gemm_RVV_4x10_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -784,9 +784,9 @@ void gemm_RISCV_4x10_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][10, 4] @DRAM
 // )
-void gemm_RISCV_4x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x11_b0_col_fp32(
+// gemm_RVV_4x11_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -794,9 +794,9 @@ void gemm_RISCV_4x10_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][11, 4] @DRAM
 // )
-void gemm_RISCV_4x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x11_b1_col_fp32(
+// gemm_RVV_4x11_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -804,9 +804,9 @@ void gemm_RISCV_4x11_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][11, 4] @DRAM
 // )
-void gemm_RISCV_4x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x12_b0_col_fp32(
+// gemm_RVV_4x12_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -814,9 +814,9 @@ void gemm_RISCV_4x11_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][12, 4] @DRAM
 // )
-void gemm_RISCV_4x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x12_b1_col_fp32(
+// gemm_RVV_4x12_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -824,9 +824,9 @@ void gemm_RISCV_4x12_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][12, 4] @DRAM
 // )
-void gemm_RISCV_4x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x1_b0_col_fp32(
+// gemm_RVV_4x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -834,9 +834,9 @@ void gemm_RISCV_4x12_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alph
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 4] @DRAM
 // )
-void gemm_RISCV_4x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x1_b1_col_fp32(
+// gemm_RVV_4x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -844,9 +844,9 @@ void gemm_RISCV_4x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 4] @DRAM
 // )
-void gemm_RISCV_4x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x2_b0_col_fp32(
+// gemm_RVV_4x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -854,9 +854,9 @@ void gemm_RISCV_4x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 4] @DRAM
 // )
-void gemm_RISCV_4x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x2_b1_col_fp32(
+// gemm_RVV_4x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -864,9 +864,9 @@ void gemm_RISCV_4x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 4] @DRAM
 // )
-void gemm_RISCV_4x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x3_b0_col_fp32(
+// gemm_RVV_4x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -874,9 +874,9 @@ void gemm_RISCV_4x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 4] @DRAM
 // )
-void gemm_RISCV_4x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x3_b1_col_fp32(
+// gemm_RVV_4x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -884,9 +884,9 @@ void gemm_RISCV_4x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 4] @DRAM
 // )
-void gemm_RISCV_4x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x4_b0_col_fp32(
+// gemm_RVV_4x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -894,9 +894,9 @@ void gemm_RISCV_4x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 4] @DRAM
 // )
-void gemm_RISCV_4x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x4_b1_col_fp32(
+// gemm_RVV_4x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -904,9 +904,9 @@ void gemm_RISCV_4x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 4] @DRAM
 // )
-void gemm_RISCV_4x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x5_b0_col_fp32(
+// gemm_RVV_4x5_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -914,9 +914,9 @@ void gemm_RISCV_4x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][5, 4] @DRAM
 // )
-void gemm_RISCV_4x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x5_b1_col_fp32(
+// gemm_RVV_4x5_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -924,9 +924,9 @@ void gemm_RISCV_4x5_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][5, 4] @DRAM
 // )
-void gemm_RISCV_4x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x6_b0_col_fp32(
+// gemm_RVV_4x6_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -934,9 +934,9 @@ void gemm_RISCV_4x5_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][6, 4] @DRAM
 // )
-void gemm_RISCV_4x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x6_b1_col_fp32(
+// gemm_RVV_4x6_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -944,9 +944,9 @@ void gemm_RISCV_4x6_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][6, 4] @DRAM
 // )
-void gemm_RISCV_4x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x7_b0_col_fp32(
+// gemm_RVV_4x7_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -954,9 +954,9 @@ void gemm_RISCV_4x6_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][7, 4] @DRAM
 // )
-void gemm_RISCV_4x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x7_b1_col_fp32(
+// gemm_RVV_4x7_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -964,9 +964,9 @@ void gemm_RISCV_4x7_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][7, 4] @DRAM
 // )
-void gemm_RISCV_4x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x8_b0_col_fp32(
+// gemm_RVV_4x8_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -974,9 +974,9 @@ void gemm_RISCV_4x7_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][8, 4] @DRAM
 // )
-void gemm_RISCV_4x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x8_b1_col_fp32(
+// gemm_RVV_4x8_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -984,9 +984,9 @@ void gemm_RISCV_4x8_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][8, 4] @DRAM
 // )
-void gemm_RISCV_4x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x9_b0_col_fp32(
+// gemm_RVV_4x9_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -994,9 +994,9 @@ void gemm_RISCV_4x8_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][9, 4] @DRAM
 // )
-void gemm_RISCV_4x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
-// gemm_RISCV_4x9_b1_col_fp32(
+// gemm_RVV_4x9_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -1004,7 +1004,7 @@ void gemm_RISCV_4x9_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha
 //     beta : f32[1] @DRAM,
 //     C : [f32][9, 4] @DRAM
 // )
-void gemm_RISCV_4x9_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
+void gemm_RVV_4x9_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc );
 
 
 

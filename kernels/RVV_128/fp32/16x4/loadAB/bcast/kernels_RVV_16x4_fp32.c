@@ -8,7 +8,7 @@
 #include <riscv_vector.h>
 
 
-// gemm_RISCV_10x1_b0_col_fp32(
+// gemm_RVV_10x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 10] @DRAM,
@@ -16,7 +16,7 @@
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 10] @DRAM
 // )
-void gemm_RISCV_10x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_10x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -79,7 +79,7 @@ __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 __riscv_vse32_v_f32m1(&C[8], C_regt_0,(2));
 }
 
-// gemm_RISCV_10x1_b1_col_fp32(
+// gemm_RVV_10x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 10] @DRAM,
@@ -87,7 +87,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 10] @DRAM
 // )
-void gemm_RISCV_10x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_10x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -150,7 +150,7 @@ __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 __riscv_vse32_v_f32m1(&C[8], C_regt_0,(2));
 }
 
-// gemm_RISCV_10x2_b0_col_fp32(
+// gemm_RVV_10x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 10] @DRAM,
@@ -158,7 +158,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 10] @DRAM
 // )
-void gemm_RISCV_10x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_10x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -256,7 +256,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(2));
 }
 
-// gemm_RISCV_10x2_b1_col_fp32(
+// gemm_RVV_10x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 10] @DRAM,
@@ -264,7 +264,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 10] @DRAM
 // )
-void gemm_RISCV_10x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_10x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -362,7 +362,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(2));
 }
 
-// gemm_RISCV_10x3_b0_col_fp32(
+// gemm_RVV_10x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 10] @DRAM,
@@ -370,7 +370,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 10] @DRAM
 // )
-void gemm_RISCV_10x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_10x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -503,7 +503,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(2));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(2));
 }
 
-// gemm_RISCV_10x3_b1_col_fp32(
+// gemm_RVV_10x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 10] @DRAM,
@@ -511,7 +511,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 10] @DRAM
 // )
-void gemm_RISCV_10x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_10x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -644,7 +644,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(2));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(2));
 }
 
-// gemm_RISCV_10x4_b0_col_fp32(
+// gemm_RVV_10x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 10] @DRAM,
@@ -652,7 +652,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 10] @DRAM
 // )
-void gemm_RISCV_10x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_10x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -820,7 +820,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(2));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_regt_3,(2));
 }
 
-// gemm_RISCV_10x4_b1_col_fp32(
+// gemm_RVV_10x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 10] @DRAM,
@@ -828,7 +828,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_regt_3,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 10] @DRAM
 // )
-void gemm_RISCV_10x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_10x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -996,7 +996,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(2));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_regt_3,(2));
 }
 
-// gemm_RISCV_11x1_b0_col_fp32(
+// gemm_RVV_11x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 11] @DRAM,
@@ -1004,7 +1004,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_regt_3,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 11] @DRAM
 // )
-void gemm_RISCV_11x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_11x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -1067,7 +1067,7 @@ __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 __riscv_vse32_v_f32m1(&C[8], C_regt_0,(3));
 }
 
-// gemm_RISCV_11x1_b1_col_fp32(
+// gemm_RVV_11x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 11] @DRAM,
@@ -1075,7 +1075,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 11] @DRAM
 // )
-void gemm_RISCV_11x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_11x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -1138,7 +1138,7 @@ __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 __riscv_vse32_v_f32m1(&C[8], C_regt_0,(3));
 }
 
-// gemm_RISCV_11x2_b0_col_fp32(
+// gemm_RVV_11x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 11] @DRAM,
@@ -1146,7 +1146,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 11] @DRAM
 // )
-void gemm_RISCV_11x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_11x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -1244,7 +1244,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(3));
 }
 
-// gemm_RISCV_11x2_b1_col_fp32(
+// gemm_RVV_11x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 11] @DRAM,
@@ -1252,7 +1252,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 11] @DRAM
 // )
-void gemm_RISCV_11x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_11x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -1350,7 +1350,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(3));
 }
 
-// gemm_RISCV_11x3_b0_col_fp32(
+// gemm_RVV_11x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 11] @DRAM,
@@ -1358,7 +1358,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 11] @DRAM
 // )
-void gemm_RISCV_11x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_11x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -1491,7 +1491,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(3));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(3));
 }
 
-// gemm_RISCV_11x3_b1_col_fp32(
+// gemm_RVV_11x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 11] @DRAM,
@@ -1499,7 +1499,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 11] @DRAM
 // )
-void gemm_RISCV_11x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_11x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -1632,7 +1632,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(3));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(3));
 }
 
-// gemm_RISCV_11x4_b0_col_fp32(
+// gemm_RVV_11x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 11] @DRAM,
@@ -1640,7 +1640,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 11] @DRAM
 // )
-void gemm_RISCV_11x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_11x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -1808,7 +1808,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(3));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_regt_3,(3));
 }
 
-// gemm_RISCV_11x4_b1_col_fp32(
+// gemm_RVV_11x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 11] @DRAM,
@@ -1816,7 +1816,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_regt_3,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 11] @DRAM
 // )
-void gemm_RISCV_11x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_11x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -1984,7 +1984,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(3));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_regt_3,(3));
 }
 
-// gemm_RISCV_12x1_b0_col_fp32(
+// gemm_RVV_12x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 12] @DRAM,
@@ -1992,7 +1992,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_regt_3,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 12] @DRAM
 // )
-void gemm_RISCV_12x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_12x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -2050,7 +2050,7 @@ __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 }
 
-// gemm_RISCV_12x1_b1_col_fp32(
+// gemm_RVV_12x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 12] @DRAM,
@@ -2058,7 +2058,7 @@ __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 12] @DRAM
 // )
-void gemm_RISCV_12x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_12x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -2116,7 +2116,7 @@ __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 }
 
-// gemm_RISCV_12x2_b0_col_fp32(
+// gemm_RVV_12x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 12] @DRAM,
@@ -2124,7 +2124,7 @@ __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 12] @DRAM
 // )
-void gemm_RISCV_12x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_12x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -2212,7 +2212,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_reg_1_1,(4));
 __riscv_vse32_v_f32m1(&C[ldc + 8], C_reg_1_2,(4));
 }
 
-// gemm_RISCV_12x2_b1_col_fp32(
+// gemm_RVV_12x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 12] @DRAM,
@@ -2220,7 +2220,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_reg_1_2,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 12] @DRAM
 // )
-void gemm_RISCV_12x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_12x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -2308,7 +2308,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_reg_1_1,(4));
 __riscv_vse32_v_f32m1(&C[ldc + 8], C_reg_1_2,(4));
 }
 
-// gemm_RISCV_12x3_b0_col_fp32(
+// gemm_RVV_12x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 12] @DRAM,
@@ -2316,7 +2316,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_reg_1_2,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 12] @DRAM
 // )
-void gemm_RISCV_12x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_12x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -2434,7 +2434,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_reg_2_1,(4));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_reg_2_2,(4));
 }
 
-// gemm_RISCV_12x3_b1_col_fp32(
+// gemm_RVV_12x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 12] @DRAM,
@@ -2442,7 +2442,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_reg_2_2,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 12] @DRAM
 // )
-void gemm_RISCV_12x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_12x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -2560,7 +2560,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_reg_2_1,(4));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_reg_2_2,(4));
 }
 
-// gemm_RISCV_12x4_b0_col_fp32(
+// gemm_RVV_12x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 12] @DRAM,
@@ -2568,7 +2568,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_reg_2_2,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 12] @DRAM
 // )
-void gemm_RISCV_12x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_12x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -2716,7 +2716,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_reg_3_1,(4));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_reg_3_2,(4));
 }
 
-// gemm_RISCV_12x4_b1_col_fp32(
+// gemm_RVV_12x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 12] @DRAM,
@@ -2724,7 +2724,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_reg_3_2,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 12] @DRAM
 // )
-void gemm_RISCV_12x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_12x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -2872,7 +2872,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_reg_3_1,(4));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_reg_3_2,(4));
 }
 
-// gemm_RISCV_13x1_b0_col_fp32(
+// gemm_RVV_13x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 13] @DRAM,
@@ -2880,7 +2880,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_reg_3_2,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 13] @DRAM
 // )
-void gemm_RISCV_13x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_13x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -2957,7 +2957,7 @@ __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 __riscv_vse32_v_f32m1(&C[12], C_regt_0,(1));
 }
 
-// gemm_RISCV_13x1_b1_col_fp32(
+// gemm_RVV_13x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 13] @DRAM,
@@ -2965,7 +2965,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 13] @DRAM
 // )
-void gemm_RISCV_13x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_13x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -3042,7 +3042,7 @@ __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 __riscv_vse32_v_f32m1(&C[12], C_regt_0,(1));
 }
 
-// gemm_RISCV_13x2_b0_col_fp32(
+// gemm_RVV_13x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 13] @DRAM,
@@ -3050,7 +3050,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 13] @DRAM
 // )
-void gemm_RISCV_13x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_13x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -3170,7 +3170,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(1));
 }
 
-// gemm_RISCV_13x2_b1_col_fp32(
+// gemm_RVV_13x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 13] @DRAM,
@@ -3178,7 +3178,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 13] @DRAM
 // )
-void gemm_RISCV_13x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_13x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -3298,7 +3298,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(1));
 }
 
-// gemm_RISCV_13x3_b0_col_fp32(
+// gemm_RVV_13x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 13] @DRAM,
@@ -3306,7 +3306,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 13] @DRAM
 // )
-void gemm_RISCV_13x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_13x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -3469,7 +3469,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(1));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(1));
 }
 
-// gemm_RISCV_13x3_b1_col_fp32(
+// gemm_RVV_13x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 13] @DRAM,
@@ -3477,7 +3477,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 13] @DRAM
 // )
-void gemm_RISCV_13x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_13x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -3640,7 +3640,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(1));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(1));
 }
 
-// gemm_RISCV_13x4_b0_col_fp32(
+// gemm_RVV_13x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 13] @DRAM,
@@ -3648,7 +3648,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 13] @DRAM
 // )
-void gemm_RISCV_13x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_13x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -3854,7 +3854,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(1));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(1));
 }
 
-// gemm_RISCV_13x4_b1_col_fp32(
+// gemm_RVV_13x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 13] @DRAM,
@@ -3862,7 +3862,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 13] @DRAM
 // )
-void gemm_RISCV_13x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_13x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -4068,7 +4068,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(1));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(1));
 }
 
-// gemm_RISCV_14x1_b0_col_fp32(
+// gemm_RVV_14x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 14] @DRAM,
@@ -4076,7 +4076,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 14] @DRAM
 // )
-void gemm_RISCV_14x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_14x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -4153,7 +4153,7 @@ __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 __riscv_vse32_v_f32m1(&C[12], C_regt_0,(2));
 }
 
-// gemm_RISCV_14x1_b1_col_fp32(
+// gemm_RVV_14x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 14] @DRAM,
@@ -4161,7 +4161,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 14] @DRAM
 // )
-void gemm_RISCV_14x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_14x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -4238,7 +4238,7 @@ __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 __riscv_vse32_v_f32m1(&C[12], C_regt_0,(2));
 }
 
-// gemm_RISCV_14x2_b0_col_fp32(
+// gemm_RVV_14x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 14] @DRAM,
@@ -4246,7 +4246,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 14] @DRAM
 // )
-void gemm_RISCV_14x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_14x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -4366,7 +4366,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(2));
 }
 
-// gemm_RISCV_14x2_b1_col_fp32(
+// gemm_RVV_14x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 14] @DRAM,
@@ -4374,7 +4374,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 14] @DRAM
 // )
-void gemm_RISCV_14x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_14x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -4494,7 +4494,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(2));
 }
 
-// gemm_RISCV_14x3_b0_col_fp32(
+// gemm_RVV_14x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 14] @DRAM,
@@ -4502,7 +4502,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 14] @DRAM
 // )
-void gemm_RISCV_14x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_14x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -4665,7 +4665,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(2));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(2));
 }
 
-// gemm_RISCV_14x3_b1_col_fp32(
+// gemm_RVV_14x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 14] @DRAM,
@@ -4673,7 +4673,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 14] @DRAM
 // )
-void gemm_RISCV_14x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_14x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -4836,7 +4836,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(2));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(2));
 }
 
-// gemm_RISCV_14x4_b0_col_fp32(
+// gemm_RVV_14x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 14] @DRAM,
@@ -4844,7 +4844,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 14] @DRAM
 // )
-void gemm_RISCV_14x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_14x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -5050,7 +5050,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(2));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(2));
 }
 
-// gemm_RISCV_14x4_b1_col_fp32(
+// gemm_RVV_14x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 14] @DRAM,
@@ -5058,7 +5058,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 14] @DRAM
 // )
-void gemm_RISCV_14x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_14x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -5264,7 +5264,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(2));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(2));
 }
 
-// gemm_RISCV_15x1_b0_col_fp32(
+// gemm_RVV_15x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 15] @DRAM,
@@ -5272,7 +5272,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 15] @DRAM
 // )
-void gemm_RISCV_15x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_15x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -5349,7 +5349,7 @@ __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 __riscv_vse32_v_f32m1(&C[12], C_regt_0,(3));
 }
 
-// gemm_RISCV_15x1_b1_col_fp32(
+// gemm_RVV_15x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 15] @DRAM,
@@ -5357,7 +5357,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 15] @DRAM
 // )
-void gemm_RISCV_15x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_15x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -5434,7 +5434,7 @@ __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 __riscv_vse32_v_f32m1(&C[12], C_regt_0,(3));
 }
 
-// gemm_RISCV_15x2_b0_col_fp32(
+// gemm_RVV_15x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 15] @DRAM,
@@ -5442,7 +5442,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 15] @DRAM
 // )
-void gemm_RISCV_15x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_15x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -5562,7 +5562,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(3));
 }
 
-// gemm_RISCV_15x2_b1_col_fp32(
+// gemm_RVV_15x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 15] @DRAM,
@@ -5570,7 +5570,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 15] @DRAM
 // )
-void gemm_RISCV_15x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_15x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -5690,7 +5690,7 @@ __riscv_vse32_v_f32m1(&C[12], C_regt_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(3));
 }
 
-// gemm_RISCV_15x3_b0_col_fp32(
+// gemm_RVV_15x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 15] @DRAM,
@@ -5698,7 +5698,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 15] @DRAM
 // )
-void gemm_RISCV_15x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_15x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -5861,7 +5861,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(3));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(3));
 }
 
-// gemm_RISCV_15x3_b1_col_fp32(
+// gemm_RVV_15x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 15] @DRAM,
@@ -5869,7 +5869,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 15] @DRAM
 // )
-void gemm_RISCV_15x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_15x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -6032,7 +6032,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_regt_1,(3));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(3));
 }
 
-// gemm_RISCV_15x4_b0_col_fp32(
+// gemm_RVV_15x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 15] @DRAM,
@@ -6040,7 +6040,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 15] @DRAM
 // )
-void gemm_RISCV_15x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_15x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -6246,7 +6246,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(3));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(3));
 }
 
-// gemm_RISCV_15x4_b1_col_fp32(
+// gemm_RVV_15x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 15] @DRAM,
@@ -6254,7 +6254,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 15] @DRAM
 // )
-void gemm_RISCV_15x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_15x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -6460,7 +6460,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_regt_2,(3));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(3));
 }
 
-// gemm_RISCV_16x1_b0_col_fp32(
+// gemm_RVV_16x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 16] @DRAM,
@@ -6468,7 +6468,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_regt_3,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 16] @DRAM
 // )
-void gemm_RISCV_16x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_16x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -6540,7 +6540,7 @@ __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 __riscv_vse32_v_f32m1(&C[12], C_reg_0_3,(4));
 }
 
-// gemm_RISCV_16x1_b1_col_fp32(
+// gemm_RVV_16x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 16] @DRAM,
@@ -6548,7 +6548,7 @@ __riscv_vse32_v_f32m1(&C[12], C_reg_0_3,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 16] @DRAM
 // )
-void gemm_RISCV_16x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_16x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -6620,7 +6620,7 @@ __riscv_vse32_v_f32m1(&C[8], C_reg_0_2,(4));
 __riscv_vse32_v_f32m1(&C[12], C_reg_0_3,(4));
 }
 
-// gemm_RISCV_16x2_b0_col_fp32(
+// gemm_RVV_16x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 16] @DRAM,
@@ -6628,7 +6628,7 @@ __riscv_vse32_v_f32m1(&C[12], C_reg_0_3,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 16] @DRAM
 // )
-void gemm_RISCV_16x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_16x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -6738,7 +6738,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_reg_1_2,(4));
 __riscv_vse32_v_f32m1(&C[ldc + 12], C_reg_1_3,(4));
 }
 
-// gemm_RISCV_16x2_b1_col_fp32(
+// gemm_RVV_16x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 16] @DRAM,
@@ -6746,7 +6746,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_reg_1_3,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 16] @DRAM
 // )
-void gemm_RISCV_16x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_16x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -6856,7 +6856,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_reg_1_2,(4));
 __riscv_vse32_v_f32m1(&C[ldc + 12], C_reg_1_3,(4));
 }
 
-// gemm_RISCV_16x3_b0_col_fp32(
+// gemm_RVV_16x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 16] @DRAM,
@@ -6864,7 +6864,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 12], C_reg_1_3,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 16] @DRAM
 // )
-void gemm_RISCV_16x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_16x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -7012,7 +7012,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_reg_2_2,(4));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_reg_2_3,(4));
 }
 
-// gemm_RISCV_16x3_b1_col_fp32(
+// gemm_RVV_16x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 16] @DRAM,
@@ -7020,7 +7020,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_reg_2_3,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 16] @DRAM
 // )
-void gemm_RISCV_16x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_16x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -7168,7 +7168,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_reg_2_2,(4));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_reg_2_3,(4));
 }
 
-// gemm_RISCV_16x4_b0_col_fp32(
+// gemm_RVV_16x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 16] @DRAM,
@@ -7176,7 +7176,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 12], C_reg_2_3,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 16] @DRAM
 // )
-void gemm_RISCV_16x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_16x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -7362,7 +7362,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_reg_3_2,(4));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_reg_3_3,(4));
 }
 
-// gemm_RISCV_16x4_b1_col_fp32(
+// gemm_RVV_16x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 16] @DRAM,
@@ -7370,7 +7370,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_reg_3_3,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 16] @DRAM
 // )
-void gemm_RISCV_16x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_16x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -7556,7 +7556,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_reg_3_2,(4));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_reg_3_3,(4));
 }
 
-// gemm_RISCV_1x1_b0_col_fp32(
+// gemm_RVV_1x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -7564,7 +7564,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 12], C_reg_3_3,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 1] @DRAM
 // )
-void gemm_RISCV_1x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_1x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -7594,7 +7594,7 @@ for (int_fast32_t ktt = 0; ktt < KC % 4; ktt++) {
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 }
 
-// gemm_RISCV_1x1_b1_col_fp32(
+// gemm_RVV_1x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -7602,7 +7602,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 1] @DRAM
 // )
-void gemm_RISCV_1x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_1x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -7632,7 +7632,7 @@ for (int_fast32_t ktt = 0; ktt < KC % 4; ktt++) {
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 }
 
-// gemm_RISCV_1x2_b0_col_fp32(
+// gemm_RVV_1x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -7640,7 +7640,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 1] @DRAM
 // )
-void gemm_RISCV_1x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_1x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -7684,7 +7684,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
 }
 
-// gemm_RISCV_1x2_b1_col_fp32(
+// gemm_RVV_1x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -7692,7 +7692,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 1] @DRAM
 // )
-void gemm_RISCV_1x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_1x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -7736,7 +7736,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
 }
 
-// gemm_RISCV_1x3_b0_col_fp32(
+// gemm_RVV_1x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -7744,7 +7744,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 1] @DRAM
 // )
-void gemm_RISCV_1x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_1x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -7802,7 +7802,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(1));
 }
 
-// gemm_RISCV_1x3_b1_col_fp32(
+// gemm_RVV_1x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -7810,7 +7810,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 1] @DRAM
 // )
-void gemm_RISCV_1x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_1x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -7868,7 +7868,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(1));
 }
 
-// gemm_RISCV_1x4_b0_col_fp32(
+// gemm_RVV_1x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -7876,7 +7876,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 1] @DRAM
 // )
-void gemm_RISCV_1x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_1x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -7948,7 +7948,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(1));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(1));
 }
 
-// gemm_RISCV_1x4_b1_col_fp32(
+// gemm_RVV_1x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 1] @DRAM,
@@ -7956,7 +7956,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 1] @DRAM
 // )
-void gemm_RISCV_1x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_1x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8028,7 +8028,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(1));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(1));
 }
 
-// gemm_RISCV_2x1_b0_col_fp32(
+// gemm_RVV_2x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -8036,7 +8036,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 2] @DRAM
 // )
-void gemm_RISCV_2x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_2x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8066,7 +8066,7 @@ for (int_fast32_t ktt = 0; ktt < KC % 4; ktt++) {
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 }
 
-// gemm_RISCV_2x1_b1_col_fp32(
+// gemm_RVV_2x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -8074,7 +8074,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 2] @DRAM
 // )
-void gemm_RISCV_2x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_2x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8104,7 +8104,7 @@ for (int_fast32_t ktt = 0; ktt < KC % 4; ktt++) {
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 }
 
-// gemm_RISCV_2x2_b0_col_fp32(
+// gemm_RVV_2x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -8112,7 +8112,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 2] @DRAM
 // )
-void gemm_RISCV_2x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_2x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8156,7 +8156,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
 }
 
-// gemm_RISCV_2x2_b1_col_fp32(
+// gemm_RVV_2x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -8164,7 +8164,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 2] @DRAM
 // )
-void gemm_RISCV_2x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_2x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8208,7 +8208,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
 }
 
-// gemm_RISCV_2x3_b0_col_fp32(
+// gemm_RVV_2x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -8216,7 +8216,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 2] @DRAM
 // )
-void gemm_RISCV_2x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_2x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8274,7 +8274,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(2));
 }
 
-// gemm_RISCV_2x3_b1_col_fp32(
+// gemm_RVV_2x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -8282,7 +8282,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 2] @DRAM
 // )
-void gemm_RISCV_2x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_2x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8340,7 +8340,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(2));
 }
 
-// gemm_RISCV_2x4_b0_col_fp32(
+// gemm_RVV_2x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -8348,7 +8348,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 2] @DRAM
 // )
-void gemm_RISCV_2x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_2x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8420,7 +8420,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(2));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(2));
 }
 
-// gemm_RISCV_2x4_b1_col_fp32(
+// gemm_RVV_2x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 2] @DRAM,
@@ -8428,7 +8428,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 2] @DRAM
 // )
-void gemm_RISCV_2x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_2x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8500,7 +8500,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(2));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(2));
 }
 
-// gemm_RISCV_3x1_b0_col_fp32(
+// gemm_RVV_3x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -8508,7 +8508,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 3] @DRAM
 // )
-void gemm_RISCV_3x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_3x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8538,7 +8538,7 @@ for (int_fast32_t ktt = 0; ktt < KC % 4; ktt++) {
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 }
 
-// gemm_RISCV_3x1_b1_col_fp32(
+// gemm_RVV_3x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -8546,7 +8546,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 3] @DRAM
 // )
-void gemm_RISCV_3x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_3x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8576,7 +8576,7 @@ for (int_fast32_t ktt = 0; ktt < KC % 4; ktt++) {
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 }
 
-// gemm_RISCV_3x2_b0_col_fp32(
+// gemm_RVV_3x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -8584,7 +8584,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 3] @DRAM
 // )
-void gemm_RISCV_3x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_3x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8628,7 +8628,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
 }
 
-// gemm_RISCV_3x2_b1_col_fp32(
+// gemm_RVV_3x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -8636,7 +8636,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 3] @DRAM
 // )
-void gemm_RISCV_3x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_3x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8680,7 +8680,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
 }
 
-// gemm_RISCV_3x3_b0_col_fp32(
+// gemm_RVV_3x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -8688,7 +8688,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 3] @DRAM
 // )
-void gemm_RISCV_3x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_3x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8746,7 +8746,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(3));
 }
 
-// gemm_RISCV_3x3_b1_col_fp32(
+// gemm_RVV_3x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -8754,7 +8754,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 3] @DRAM
 // )
-void gemm_RISCV_3x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_3x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8812,7 +8812,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(3));
 }
 
-// gemm_RISCV_3x4_b0_col_fp32(
+// gemm_RVV_3x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -8820,7 +8820,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 3] @DRAM
 // )
-void gemm_RISCV_3x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_3x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8892,7 +8892,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(3));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(3));
 }
 
-// gemm_RISCV_3x4_b1_col_fp32(
+// gemm_RVV_3x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 3] @DRAM,
@@ -8900,7 +8900,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 3] @DRAM
 // )
-void gemm_RISCV_3x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_3x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -8972,7 +8972,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(3));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(3));
 }
 
-// gemm_RISCV_4x1_b0_col_fp32(
+// gemm_RVV_4x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -8980,7 +8980,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 4] @DRAM
 // )
-void gemm_RISCV_4x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_4x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9010,7 +9010,7 @@ for (int_fast32_t ktt = 0; ktt < KC % 4; ktt++) {
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 }
 
-// gemm_RISCV_4x1_b1_col_fp32(
+// gemm_RVV_4x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -9018,7 +9018,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 4] @DRAM
 // )
-void gemm_RISCV_4x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_4x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9048,7 +9048,7 @@ for (int_fast32_t ktt = 0; ktt < KC % 4; ktt++) {
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 }
 
-// gemm_RISCV_4x2_b0_col_fp32(
+// gemm_RVV_4x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -9056,7 +9056,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 4] @DRAM
 // )
-void gemm_RISCV_4x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_4x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9100,7 +9100,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
 }
 
-// gemm_RISCV_4x2_b1_col_fp32(
+// gemm_RVV_4x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -9108,7 +9108,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 4] @DRAM
 // )
-void gemm_RISCV_4x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_4x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9152,7 +9152,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
 }
 
-// gemm_RISCV_4x3_b0_col_fp32(
+// gemm_RVV_4x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -9160,7 +9160,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 4] @DRAM
 // )
-void gemm_RISCV_4x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_4x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9218,7 +9218,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(4));
 }
 
-// gemm_RISCV_4x3_b1_col_fp32(
+// gemm_RVV_4x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -9226,7 +9226,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 4] @DRAM
 // )
-void gemm_RISCV_4x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_4x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9284,7 +9284,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(4));
 }
 
-// gemm_RISCV_4x4_b0_col_fp32(
+// gemm_RVV_4x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -9292,7 +9292,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 4] @DRAM
 // )
-void gemm_RISCV_4x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_4x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9364,7 +9364,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(4));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(4));
 }
 
-// gemm_RISCV_4x4_b1_col_fp32(
+// gemm_RVV_4x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 4] @DRAM,
@@ -9372,7 +9372,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 4] @DRAM
 // )
-void gemm_RISCV_4x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_4x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9444,7 +9444,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2,(4));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(4));
 }
 
-// gemm_RISCV_5x1_b0_col_fp32(
+// gemm_RVV_5x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 5] @DRAM,
@@ -9452,7 +9452,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 5] @DRAM
 // )
-void gemm_RISCV_5x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_5x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9501,7 +9501,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0_0,(4));
 __riscv_vse32_v_f32m1(&C[4], C_regt_0,(1));
 }
 
-// gemm_RISCV_5x1_b1_col_fp32(
+// gemm_RVV_5x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 5] @DRAM,
@@ -9509,7 +9509,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 5] @DRAM
 // )
-void gemm_RISCV_5x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_5x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9558,7 +9558,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0_0,(4));
 __riscv_vse32_v_f32m1(&C[4], C_regt_0,(1));
 }
 
-// gemm_RISCV_5x2_b0_col_fp32(
+// gemm_RVV_5x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 5] @DRAM,
@@ -9566,7 +9566,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 5] @DRAM
 // )
-void gemm_RISCV_5x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_5x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9642,7 +9642,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(1));
 }
 
-// gemm_RISCV_5x2_b1_col_fp32(
+// gemm_RVV_5x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 5] @DRAM,
@@ -9650,7 +9650,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 5] @DRAM
 // )
-void gemm_RISCV_5x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_5x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9726,7 +9726,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(1));
 }
 
-// gemm_RISCV_5x3_b0_col_fp32(
+// gemm_RVV_5x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 5] @DRAM,
@@ -9734,7 +9734,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 5] @DRAM
 // )
-void gemm_RISCV_5x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_5x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9837,7 +9837,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(1));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(1));
 }
 
-// gemm_RISCV_5x3_b1_col_fp32(
+// gemm_RVV_5x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 5] @DRAM,
@@ -9845,7 +9845,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 5] @DRAM
 // )
-void gemm_RISCV_5x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_5x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -9948,7 +9948,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(1));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(1));
 }
 
-// gemm_RISCV_5x4_b0_col_fp32(
+// gemm_RVV_5x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 5] @DRAM,
@@ -9956,7 +9956,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 5] @DRAM
 // )
-void gemm_RISCV_5x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_5x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -10086,7 +10086,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(1));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(1));
 }
 
-// gemm_RISCV_5x4_b1_col_fp32(
+// gemm_RVV_5x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 5] @DRAM,
@@ -10094,7 +10094,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 5] @DRAM
 // )
-void gemm_RISCV_5x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_5x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -10224,7 +10224,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(1));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(1));
 }
 
-// gemm_RISCV_6x1_b0_col_fp32(
+// gemm_RVV_6x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 6] @DRAM,
@@ -10232,7 +10232,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 6] @DRAM
 // )
-void gemm_RISCV_6x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_6x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -10281,7 +10281,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0_0,(4));
 __riscv_vse32_v_f32m1(&C[4], C_regt_0,(2));
 }
 
-// gemm_RISCV_6x1_b1_col_fp32(
+// gemm_RVV_6x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 6] @DRAM,
@@ -10289,7 +10289,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 6] @DRAM
 // )
-void gemm_RISCV_6x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_6x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -10338,7 +10338,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0_0,(4));
 __riscv_vse32_v_f32m1(&C[4], C_regt_0,(2));
 }
 
-// gemm_RISCV_6x2_b0_col_fp32(
+// gemm_RVV_6x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 6] @DRAM,
@@ -10346,7 +10346,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 6] @DRAM
 // )
-void gemm_RISCV_6x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_6x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -10422,7 +10422,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(2));
 }
 
-// gemm_RISCV_6x2_b1_col_fp32(
+// gemm_RVV_6x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 6] @DRAM,
@@ -10430,7 +10430,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 6] @DRAM
 // )
-void gemm_RISCV_6x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_6x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -10506,7 +10506,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(2));
 }
 
-// gemm_RISCV_6x3_b0_col_fp32(
+// gemm_RVV_6x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 6] @DRAM,
@@ -10514,7 +10514,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 6] @DRAM
 // )
-void gemm_RISCV_6x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_6x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -10617,7 +10617,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(2));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(2));
 }
 
-// gemm_RISCV_6x3_b1_col_fp32(
+// gemm_RVV_6x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 6] @DRAM,
@@ -10625,7 +10625,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 6] @DRAM
 // )
-void gemm_RISCV_6x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_6x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -10728,7 +10728,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(2));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(2));
 }
 
-// gemm_RISCV_6x4_b0_col_fp32(
+// gemm_RVV_6x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 6] @DRAM,
@@ -10736,7 +10736,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 6] @DRAM
 // )
-void gemm_RISCV_6x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_6x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -10866,7 +10866,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(2));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(2));
 }
 
-// gemm_RISCV_6x4_b1_col_fp32(
+// gemm_RVV_6x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 6] @DRAM,
@@ -10874,7 +10874,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 6] @DRAM
 // )
-void gemm_RISCV_6x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_6x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11004,7 +11004,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(2));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(2));
 }
 
-// gemm_RISCV_7x1_b0_col_fp32(
+// gemm_RVV_7x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 7] @DRAM,
@@ -11012,7 +11012,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(2));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 7] @DRAM
 // )
-void gemm_RISCV_7x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_7x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11061,7 +11061,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0_0,(4));
 __riscv_vse32_v_f32m1(&C[4], C_regt_0,(3));
 }
 
-// gemm_RISCV_7x1_b1_col_fp32(
+// gemm_RVV_7x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 7] @DRAM,
@@ -11069,7 +11069,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 7] @DRAM
 // )
-void gemm_RISCV_7x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_7x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11118,7 +11118,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0_0,(4));
 __riscv_vse32_v_f32m1(&C[4], C_regt_0,(3));
 }
 
-// gemm_RISCV_7x2_b0_col_fp32(
+// gemm_RVV_7x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 7] @DRAM,
@@ -11126,7 +11126,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 7] @DRAM
 // )
-void gemm_RISCV_7x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_7x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11202,7 +11202,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(3));
 }
 
-// gemm_RISCV_7x2_b1_col_fp32(
+// gemm_RVV_7x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 7] @DRAM,
@@ -11210,7 +11210,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 7] @DRAM
 // )
-void gemm_RISCV_7x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_7x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11286,7 +11286,7 @@ __riscv_vse32_v_f32m1(&C[4], C_regt_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(3));
 }
 
-// gemm_RISCV_7x3_b0_col_fp32(
+// gemm_RVV_7x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 7] @DRAM,
@@ -11294,7 +11294,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 7] @DRAM
 // )
-void gemm_RISCV_7x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_7x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11397,7 +11397,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(3));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(3));
 }
 
-// gemm_RISCV_7x3_b1_col_fp32(
+// gemm_RVV_7x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 7] @DRAM,
@@ -11405,7 +11405,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 7] @DRAM
 // )
-void gemm_RISCV_7x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_7x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11508,7 +11508,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_regt_1,(3));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(3));
 }
 
-// gemm_RISCV_7x4_b0_col_fp32(
+// gemm_RVV_7x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 7] @DRAM,
@@ -11516,7 +11516,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 7] @DRAM
 // )
-void gemm_RISCV_7x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_7x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11646,7 +11646,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(3));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(3));
 }
 
-// gemm_RISCV_7x4_b1_col_fp32(
+// gemm_RVV_7x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 7] @DRAM,
@@ -11654,7 +11654,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 7] @DRAM
 // )
-void gemm_RISCV_7x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_7x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11784,7 +11784,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_regt_2,(3));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(3));
 }
 
-// gemm_RISCV_8x1_b0_col_fp32(
+// gemm_RVV_8x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 8] @DRAM,
@@ -11792,7 +11792,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_regt_3,(3));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 8] @DRAM
 // )
-void gemm_RISCV_8x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_8x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11836,7 +11836,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0_0,(4));
 __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 }
 
-// gemm_RISCV_8x1_b1_col_fp32(
+// gemm_RVV_8x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 8] @DRAM,
@@ -11844,7 +11844,7 @@ __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 8] @DRAM
 // )
-void gemm_RISCV_8x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_8x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11888,7 +11888,7 @@ __riscv_vse32_v_f32m1(&C[0], C_reg_0_0,(4));
 __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 }
 
-// gemm_RISCV_8x2_b0_col_fp32(
+// gemm_RVV_8x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 8] @DRAM,
@@ -11896,7 +11896,7 @@ __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 8] @DRAM
 // )
-void gemm_RISCV_8x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_8x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -11962,7 +11962,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1_0,(4));
 __riscv_vse32_v_f32m1(&C[ldc + 4], C_reg_1_1,(4));
 }
 
-// gemm_RISCV_8x2_b1_col_fp32(
+// gemm_RVV_8x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 8] @DRAM,
@@ -11970,7 +11970,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_reg_1_1,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 8] @DRAM
 // )
-void gemm_RISCV_8x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_8x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -12036,7 +12036,7 @@ __riscv_vse32_v_f32m1(&C[ldc], C_reg_1_0,(4));
 __riscv_vse32_v_f32m1(&C[ldc + 4], C_reg_1_1,(4));
 }
 
-// gemm_RISCV_8x3_b0_col_fp32(
+// gemm_RVV_8x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 8] @DRAM,
@@ -12044,7 +12044,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 4], C_reg_1_1,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 8] @DRAM
 // )
-void gemm_RISCV_8x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_8x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -12132,7 +12132,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2_0,(4));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_reg_2_1,(4));
 }
 
-// gemm_RISCV_8x3_b1_col_fp32(
+// gemm_RVV_8x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 8] @DRAM,
@@ -12140,7 +12140,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_reg_2_1,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 8] @DRAM
 // )
-void gemm_RISCV_8x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_8x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -12228,7 +12228,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc)], C_reg_2_0,(4));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_reg_2_1,(4));
 }
 
-// gemm_RISCV_8x4_b0_col_fp32(
+// gemm_RVV_8x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 8] @DRAM,
@@ -12236,7 +12236,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 4], C_reg_2_1,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 8] @DRAM
 // )
-void gemm_RISCV_8x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_8x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -12346,7 +12346,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3_0,(4));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_reg_3_1,(4));
 }
 
-// gemm_RISCV_8x4_b1_col_fp32(
+// gemm_RVV_8x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 8] @DRAM,
@@ -12354,7 +12354,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_reg_3_1,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 8] @DRAM
 // )
-void gemm_RISCV_8x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_8x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -12464,7 +12464,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc)], C_reg_3_0,(4));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_reg_3_1,(4));
 }
 
-// gemm_RISCV_9x1_b0_col_fp32(
+// gemm_RVV_9x1_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 9] @DRAM,
@@ -12472,7 +12472,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 4], C_reg_3_1,(4));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 9] @DRAM
 // )
-void gemm_RISCV_9x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_9x1_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -12535,7 +12535,7 @@ __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 __riscv_vse32_v_f32m1(&C[8], C_regt_0,(1));
 }
 
-// gemm_RISCV_9x1_b1_col_fp32(
+// gemm_RVV_9x1_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 9] @DRAM,
@@ -12543,7 +12543,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][1, 9] @DRAM
 // )
-void gemm_RISCV_9x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_9x1_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -12606,7 +12606,7 @@ __riscv_vse32_v_f32m1(&C[4], C_reg_0_1,(4));
 __riscv_vse32_v_f32m1(&C[8], C_regt_0,(1));
 }
 
-// gemm_RISCV_9x2_b0_col_fp32(
+// gemm_RVV_9x2_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 9] @DRAM,
@@ -12614,7 +12614,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 9] @DRAM
 // )
-void gemm_RISCV_9x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_9x2_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -12712,7 +12712,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(1));
 }
 
-// gemm_RISCV_9x2_b1_col_fp32(
+// gemm_RVV_9x2_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 9] @DRAM,
@@ -12720,7 +12720,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][2, 9] @DRAM
 // )
-void gemm_RISCV_9x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_9x2_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -12818,7 +12818,7 @@ __riscv_vse32_v_f32m1(&C[8], C_regt_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(1));
 }
 
-// gemm_RISCV_9x3_b0_col_fp32(
+// gemm_RVV_9x3_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 9] @DRAM,
@@ -12826,7 +12826,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 9] @DRAM
 // )
-void gemm_RISCV_9x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_9x3_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -12959,7 +12959,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(1));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(1));
 }
 
-// gemm_RISCV_9x3_b1_col_fp32(
+// gemm_RVV_9x3_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 9] @DRAM,
@@ -12967,7 +12967,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][3, 9] @DRAM
 // )
-void gemm_RISCV_9x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_9x3_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -13100,7 +13100,7 @@ __riscv_vse32_v_f32m1(&C[ldc + 8], C_regt_1,(1));
 __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(1));
 }
 
-// gemm_RISCV_9x4_b0_col_fp32(
+// gemm_RVV_9x4_b0_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 9] @DRAM,
@@ -13108,7 +13108,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 9] @DRAM
 // )
-void gemm_RISCV_9x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_9x4_b0_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1
@@ -13276,7 +13276,7 @@ __riscv_vse32_v_f32m1(&C[(2) * (ldc) + 8], C_regt_2,(1));
 __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_regt_3,(1));
 }
 
-// gemm_RISCV_9x4_b1_col_fp32(
+// gemm_RVV_9x4_b1_col_fp32(
 //     KC : size,
 //     alpha : f32[1] @DRAM,
 //     A : [f32][KC, 9] @DRAM,
@@ -13284,7 +13284,7 @@ __riscv_vse32_v_f32m1(&C[(3) * (ldc) + 8], C_regt_3,(1));
 //     beta : f32[1] @DRAM,
 //     C : [f32][4, 9] @DRAM
 // )
-void gemm_RISCV_9x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
+void gemm_RVV_9x4_b1_col_fp32( void *ctxt, int_fast32_t KC, const float* alpha, float * A, int lda, float * B, int ldb, const float* beta, float * C, int ldc ) {
 // assert stride(A, 1) == 1
 // assert stride(B, 1) == 1
 // assert stride(C, 1) == 1

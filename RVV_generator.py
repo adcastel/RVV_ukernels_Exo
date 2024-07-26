@@ -350,8 +350,8 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, gather=False):
 
         t=unrollbuffers(t, "C_reg")
         t=unrollbuffers(t, "B_reg")
-        t =  divide_loop(t,'k', 4, ['kt','ktt'], tail='cut')
-        t = unroll_loop(t, "ktt")
+        #t =  divide_loop(t,'k', 4, ['kt','ktt'], tail='cut')
+        #t = unroll_loop(t, "ktt")
     
         return t
     
@@ -368,15 +368,19 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, gather=False):
                          'gather':rvv_gather_8xf32}
     elif prec=="fp16":
         precision="f16"
-        LANE=8
-        intrinsics = {'load': rvv_vld_8xf16, 'store': rvv_vst_8xf16, 'fmla':  rvv_vfmacc_8xf16_8xf16,
+        if LANE==8:
+            intrinsics = {'load': rvv_vld_8xf16, 'store': rvv_vst_8xf16, 'fmla':  rvv_vfmacc_8xf16_8xf16,
                          'bcast': rvv_broadcast_8xf16, 'zeros': rvv_broadcast_8xf16_0, 'bcast_scalar': rvv_broadcast_8xf16_scalar,
                          'gather':rvv_gather_8xf16}
+        else:
+            intrinsics = {'load': rvv_vld_16xf16, 'store': rvv_vst_16xf16, 'fmla':  rvv_vfmacc_16xf16_16xf16,
+                         'bcast': rvv_broadcast_16xf16, 'zeros': rvv_broadcast_16xf16_0, 'bcast_scalar': rvv_broadcast_16xf16_scalar,
+                         'gather':rvv_gather_16xf16}
     else:
         print("{} not supported yet!".format(prec))
     
     p=ukernel_beta0
-    p = rename(p, "gemm_{}_{}x{}_b{}_{}_{}".format("RISCV", MR,NR, 0 if beta0 else 1, "col",prec))
+    p = rename(p, "gemm_{}_{}x{}_b{}_{}_{}".format("RVV", MR,NR, 0 if beta0 else 1, "col",prec))
     p = set_window(p, "C", True)
     p = set_window(p, "A", True)
     p = set_window(p, "B", True)
@@ -792,8 +796,8 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, gather=False):
                 p=unrollbuffers(p, "B_reg")
                 p=unrollbuffers(p, "B_reg2")
                 p=unrollbuffers(p, "A_reg")
-                p =  divide_loop(p,'k', 4, ['kt','ktt'], tail='cut')
-                p = unroll_loop(p, "ktt")
+                #p =  divide_loop(p,'k', 4, ['kt','ktt'], tail='cut')
+                #p = unroll_loop(p, "ktt")
                 return p
         
         
@@ -985,8 +989,8 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, gather=False):
     
     if MR % LANE != 0:
         p=unrollbuffers(p, "C_regt")
-    p =  divide_loop(p,'k', 4, ['kt','ktt'], tail='cut')
-    p = unroll_loop(p, "ktt")
+    #p =  divide_loop(p,'k', 4, ['kt','ktt'], tail='cut')
+    #p = unroll_loop(p, "ktt")
     return p
 
 
