@@ -52,7 +52,7 @@ def generate_file(MR, NR, LANE, arch, precA, precB, precC ,dest, bits, ss, gg):
         ddA= "f32" if dataA == "fp32" else "f16"
         ddB= "f32" if dataB == "fp32" else "f16"
         ddC= "f32" if dataC == "fp32" else "f16"
-        f.write(f"typedef void (*ukrFunction)( void *ctxt, int_fast32_t KC, const {dataA}* alpha, struct exo_win_2{ddA}c A, , struct exo_win_2{ddB}c B, const {dataC}* beta,  struct exo_win_2{ddC} *C);\n")
+        f.write(f"typedef void (*ukrFunction)( void *ctxt, int_fast32_t KC, const {dataA}* alpha, struct exo_win_2{ddA}c A, struct exo_win_2{ddB}c B, const {dataC}* beta,  struct exo_win_2{ddC} *C);\n")
         f.write(f"ukrFunction**** allocateMatrix();\nvoid fillMatrix(ukrFunction**** matrix);\nvoid freeMatrix(ukrFunction**** matrix);\n")
 
 
