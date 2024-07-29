@@ -121,6 +121,7 @@ def main():
     parser.add_argument('precC', type=str, help='precision')
     parser.add_argument('swap', type=int, help='swap')
     parser.add_argument('gather', type=int, help='gather')
+    parser.add_argument('modo', type=str, help='modo')
     #parser.add_argument('dest', type=str, help='path')
     
     # Parse arguments
@@ -137,11 +138,12 @@ def main():
     precA = args.precA.lower()
     precB = args.precB.lower()
     precC = args.precC.lower()
+    mode = args.modo.upper()
     #dest = args.dest
     bits = os.environ['RVV_BITS']
     ss = "loadAB" if args.swap == 0 else "loadBA"
     gg = "gather" if args.gather == 1 else "bcast"
-    dest=f"kernels/{arch}_{bits}/{precC}/{MR}x{NR}/{ss}/{gg}"
+    dest=f"kernels/{arch}_{bits}_{mode}/{precC}/{MR}x{NR}/{ss}/{gg}"
     if gettype(precA) == "" or gettype(precB) == "" or gettype(precC) == "":
         print("Error data type")
     generate_file(MR, NR, LANE, arch, precA, precB, precC ,dest, bits, ss, gg)

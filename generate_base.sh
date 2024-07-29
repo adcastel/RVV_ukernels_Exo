@@ -76,14 +76,14 @@ do
 	         #python3 exo_to_opt_converter.py ${dest}/${ff}.c ${dest}/${ff}.c 0 ${mr} ${nr} ${prec} ${ARCH}
 	         echo "python3 exo_to_opt_converter.py ${dest}/${ff}.h ${dest}/${ff}.h 0 ${mr} ${nr} ${prec} ${ARCH}"
 	         #python3 exo_to_opt_converter.py ${dest}/${ff}.h ${dest}/${ff}.h 0 ${mr} ${nr} ${prec} ${ARCH}
-	 	 echo "python3 generate_matrix_base.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}"
-	 	 python3 generate_matrix_base.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}
 	       else
 	         echo "${mr}x${nr} has not been build"
 	       fi
 	     else
 	       echo "${dest}/${ff} already exists"
 	     fi
+	     echo "python3 generate_matrix_base.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}"
+	     python3 generate_matrix_base.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}
           done;
 	done;
       done;

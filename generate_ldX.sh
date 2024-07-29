@@ -1,6 +1,6 @@
 #/bin/bash
 
-
+mode=LDX
 for ARCH in RVV
 do
   for bits in 256 128;
@@ -42,6 +42,7 @@ do
 	     export RVV_BITS=128
 	  else
 	     ini=16
+	     ininr=4
 	     end=96
 	     step=16
 	     lane=16
@@ -67,23 +68,23 @@ do
 	  for nr in $(seq ${ininr} ${stepnr} ${endnr});
 	  do	    
 	    ff=kernels_${ARCH}_${mr}x${nr}_fp${prec}
-	    dest=kernels/${ARCH}_${bits}_LDX/fp${prec}/${mr}x${nr}/${ss}/${gg}
+	    dest=kernels/${ARCH}_${bits}_${mode}/fp${prec}/${mr}x${nr}/${ss}/${gg}
             if ! test -f ${dest}/${ff}.c; then
-                echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 60 | exocc -o ${dest} --stem ${ff} RVV_generator.py" 
-                echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 60" | exocc -o ${dest} --stem ${ff} RVV_generator.py
-                if test -f ${dest}/${ff}.c; then
-	            echo "python3 exo_to_opt_converter.py ${dest}/${ff}.c ${dest}/${ff}.c 0 ${mr} ${nr} ${prec} ${ARCH}"
-	            python3 exo_to_opt_converter.py ${dest}/${ff}.c ${dest}/${ff}.c 0 ${mr} ${nr} ${prec} ${ARCH}
-	            echo "python3 exo_to_opt_converter.py ${dest}/${ff}.h ${dest}/${ff}.h 0 ${mr} ${nr} ${prec} ${ARCH}"
-	            python3 exo_to_opt_converter.py ${dest}/${ff}.h ${dest}/${ff}.h 0 ${mr} ${nr} ${prec} ${ARCH}
-		    echo "python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}"
-		    python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}
-	        else
+	      echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 60 | exocc -o ${dest} --stem ${ff} RVV_generator.py" 
+              echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 60" | exocc -o ${dest} --stem ${ff} RVV_generator.py
+	      if test -f ${dest}/${ff}.c; then
+	        echo "python3 exo_to_opt_converter.py ${dest}/${ff}.c ${dest}/${ff}.c 0 ${mr} ${nr} ${prec} ${ARCH}"
+	        python3 exo_to_opt_converter.py ${dest}/${ff}.c ${dest}/${ff}.c 0 ${mr} ${nr} ${prec} ${ARCH}
+	        echo "python3 exo_to_opt_converter.py ${dest}/${ff}.h ${dest}/${ff}.h 0 ${mr} ${nr} ${prec} ${ARCH}"
+	        python3 exo_to_opt_converter.py ${dest}/${ff}.h ${dest}/${ff}.h 0 ${mr} ${nr} ${prec} ${ARCH}
+	      else
 	          echo "${mr}x${nr} has not been build"
-	        fi
-	     else
-	          echo "${dest}/${ff} already exists"
-	    fi
+	      fi
+           else
+	      echo "${dest}/${ff} already exists"
+	   fi
+	   echo "python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}"
+	   python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather} ${mode}
           done;
 	done;
       done;

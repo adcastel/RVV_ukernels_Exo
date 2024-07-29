@@ -125,6 +125,7 @@ def main():
     parser.add_argument('precC', type=str, help='precision')
     parser.add_argument('swap', type=int, help='swap')
     parser.add_argument('gather', type=int, help='gather')
+    #parser.add_argument('modo', type=str, help='modo')
     #parser.add_argument('dest', type=str, help='path')
     
     # Parse arguments
