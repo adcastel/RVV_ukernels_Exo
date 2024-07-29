@@ -49,9 +49,9 @@ def generate_file(MR, NR, LANE, arch, precA, precB, precC ,dest, bits, ss, gg):
         f.write(f"#include \"kernels_{arch}_{MR}x{NR}_{precC}.h\"\n")
         f.write(f"#include <stdlib.h>\n")
         #f.write(f"typedef void (*ukrFunction)( void *ctxt, int_fast32_t KC, const {dataA}* alpha, {dataA} * A, int lda , {dataB} * B, int ldb, const {dataC}* beta, {dataC} *C, int ldc);\n")
-        ddA= "f32" if dataA == "fp32" else "f16"
-        ddB= "f32" if dataB == "fp32" else "f16"
-        ddC= "f32" if dataC == "fp32" else "f16"
+        ddA= "f32" #if dataA == "fp32" else "f16"
+        ddB= "f32" #if dataB == "fp32" else "f16"
+        ddC= "f32" #if dataC == "fp32" else "f16"
         f.write(f"typedef void (*ukrFunction)( void *ctxt, int_fast32_t KC, const {dataA}* alpha, struct exo_win_2{ddA}c A, struct exo_win_2{ddB}c B, const {dataC}* beta,  struct exo_win_2{ddC} *C);\n")
         f.write(f"ukrFunction**** allocateMatrix();\nvoid fillMatrix(ukrFunction**** matrix);\nvoid freeMatrix(ukrFunction**** matrix);\n")
 
