@@ -1,12 +1,12 @@
 #/bin/bash
 
-mode=UNROLL
+mode=OPT
 for ARCH in RVV
 do
-  for bits in 256; # 128;
+  for bits in 128;
   do
     export RVV_BITS=${bits}
-    for prec in 32; # 16; 
+    for prec in 32 16; 
     do 
       for swap in 0 1; 
       do  
@@ -71,7 +71,8 @@ do
 	    dest=kernels/${ARCH}_${bits}_${mode}/fp${prec}/${mr}x${nr}/${ss}/${gg}
             if ! test -f ${dest}/${ff}.c; then
 	      echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 60 | exocc -o ${dest} --stem ${ff} RVV_generator.py" 
-              echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 60" | exocc -o ${dest} --stem ${ff} RVV_generator_unroll.py
+              #echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 60" | exocc -o ${dest} --stem ${ff} RVV_generator_unroll.py
+              echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 60" | exocc -o ${dest} --stem ${ff} RVV_generator.py
 	      if test -f ${dest}/${ff}.c; then
 	        echo "python3 exo_to_opt_converter.py ${dest}/${ff}.c ${dest}/${ff}.c 1 ${mr} ${nr} ${prec} ${ARCH}"
 	        python3 exo_to_opt_converter.py ${dest}/${ff}.c ${dest}/${ff}.c 1 ${mr} ${nr} ${prec} ${ARCH}
