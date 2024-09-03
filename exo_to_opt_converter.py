@@ -15,7 +15,7 @@ def replace_words_in_file(file_path, new_file_path, replacements):
         print("Words replaced successfully!")
     
     except FileNotFoundError:
-        print("File not found.")
+        print("{} File not found.".format(file_path))
         
 
 if __name__ == "__main__":
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     parser.add_argument("arch", help="arch")
     args = parser.parse_args()
     esp = int(args.esp)
-    if args.MR == "24" and args.NR=="24" and "32" in args.prec:
+    if args.MR == "32" and args.NR=="24" and "32" in args.prec:
         esp = 0
     if args.MR == "48" and args.NR=="48" and "16" in args.prec:
         esp = 0

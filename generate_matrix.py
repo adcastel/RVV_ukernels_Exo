@@ -44,13 +44,14 @@ def generate_file(MR, NR, LANE, arch, precA, precB, precC ,dest, bits, ss, gg):
     if dataA == "" or dataB == "" or dataC == "":
         print("Error in datatypes")
         return
-    
-    with open("{}/exo_matrix_{}_{}.h".format(dest,arch, precC), 'w') as f:
-        f.write(f"#include \"kernels_{arch}_{MR}x{NR}_{precC}.h\"\n")
-        f.write(f"#include <stdlib.h>\n")
-        f.write(f"typedef void (*ukrFunction)( void *ctxt, int_fast32_t KC, const {dataA}* alpha, {dataA} * A, int lda , {dataB} * B, int ldb, const {dataC}* beta, {dataC} *C, int ldc);\n")
-        f.write(f"ukrFunction**** allocateMatrix();\nvoid fillMatrix(ukrFunction**** matrix);\nvoid freeMatrix(ukrFunction**** matrix);\n")
-
+    try:
+        with open("{}/exo_matrix_{}_{}.h".format(dest,arch, precC), 'w') as f:
+            f.write(f"#include \"kernels_{arch}_{MR}x{NR}_{precC}.h\"\n")
+            f.write(f"#include <stdlib.h>\n")
+            f.write(f"typedef void (*ukrFunction)( void *ctxt, int_fast32_t KC, const {dataA}* alpha, {dataA} * A, int lda , {dataB} * B, int ldb, const {dataC}* beta, {dataC} *C, int ldc);\n")
+            f.write(f"ukrFunction**** allocateMatrix();\nvoid fillMatrix(ukrFunction**** matrix);\nvoid freeMatrix(ukrFunction**** matrix);\n")
+    except:
+        print("Error creating file")
 
 
     with open("{}/exo_matrix_{}_{}.c".format(dest,arch, precC), 'w') as f:
@@ -143,6 +144,9 @@ def main():
     bits = os.environ['RVV_BITS']
     ss = "loadAB" if args.swap == 0 else "loadBA"
     gg = "gather" if args.gather == 1 else "bcast"
+    if args.gather == 2:
+        gg = "macc"
+    
     dest=f"kernels/{arch}_{bits}_{mode}/{precC}/{MR}x{NR}/{ss}/{gg}"
     if gettype(precA) == "" or gettype(precB) == "" or gettype(precC) == "":
         print("Error data type")
