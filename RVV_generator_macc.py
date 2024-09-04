@@ -921,7 +921,6 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, loadB=0, unroll=1):
             p = reorder_up(p, "for itt in _:_ #{}".format(up2),n=1)
             p = reorder_up(p, "for itt in _:_ #{}".format(up3),n=1)
         else:
-            print(p)
             up1 = MR//LANE + 1 + MR//LANE + MR//LANE
             p = reorder_up(p, "for itt in _:_ #{}".format(up1),n=1)
 
