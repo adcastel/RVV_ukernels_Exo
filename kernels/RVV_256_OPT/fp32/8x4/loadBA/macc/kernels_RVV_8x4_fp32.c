@@ -25,7 +25,7 @@ C_reg_0 = __riscv_vfmv_v_f_f32m1(0.0f,(1));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(1));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(1));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(1));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 }
@@ -47,7 +47,7 @@ C_reg_0 = __riscv_vle32_v_f32m1(&C[0],(1));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(1));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(1));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(1));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 }
@@ -71,8 +71,8 @@ C_reg_1 = __riscv_vfmv_v_f_f32m1(0.0f,(1));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(1));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(1));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(1));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(1));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(1));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
@@ -97,8 +97,8 @@ C_reg_1 = __riscv_vle32_v_f32m1(&C[ldc],(1));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(1));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(1));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(1));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(1));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(1));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
@@ -125,9 +125,9 @@ C_reg_2 = __riscv_vfmv_v_f_f32m1(0.0f,(1));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(1));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(1));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(1));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(1));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(1));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(1));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(1));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
@@ -155,9 +155,9 @@ C_reg_2 = __riscv_vle32_v_f32m1(&C[(2) * (ldc)],(1));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(1));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(1));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(1));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(1));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(1));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(1));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(1));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
@@ -187,10 +187,10 @@ C_reg_3 = __riscv_vfmv_v_f_f32m1(0.0f,(1));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(1));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(1));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(1));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(1));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(1));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(1));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(1));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(1));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(1));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
@@ -221,10 +221,10 @@ C_reg_3 = __riscv_vle32_v_f32m1(&C[(3) * (ldc)],(1));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(1));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(1));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(1));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(1));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(1));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(1));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(1));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(1));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(1));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(1));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(1));
@@ -249,7 +249,7 @@ C_reg_0 = __riscv_vfmv_v_f_f32m1(0.0f,(2));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(2));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(2));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(2));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 }
@@ -271,7 +271,7 @@ C_reg_0 = __riscv_vle32_v_f32m1(&C[0],(2));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(2));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(2));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(2));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 }
@@ -295,8 +295,8 @@ C_reg_1 = __riscv_vfmv_v_f_f32m1(0.0f,(2));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(2));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(2));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(2));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(2));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(2));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
@@ -321,8 +321,8 @@ C_reg_1 = __riscv_vle32_v_f32m1(&C[ldc],(2));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(2));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(2));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(2));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(2));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(2));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
@@ -349,9 +349,9 @@ C_reg_2 = __riscv_vfmv_v_f_f32m1(0.0f,(2));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(2));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(2));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(2));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(2));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(2));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(2));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(2));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
@@ -379,9 +379,9 @@ C_reg_2 = __riscv_vle32_v_f32m1(&C[(2) * (ldc)],(2));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(2));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(2));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(2));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(2));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(2));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(2));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(2));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
@@ -411,10 +411,10 @@ C_reg_3 = __riscv_vfmv_v_f_f32m1(0.0f,(2));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(2));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(2));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(2));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(2));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(2));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(2));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(2));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(2));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(2));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
@@ -445,10 +445,10 @@ C_reg_3 = __riscv_vle32_v_f32m1(&C[(3) * (ldc)],(2));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(2));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(2));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(2));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(2));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(2));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(2));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(2));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(2));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(2));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(2));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(2));
@@ -473,7 +473,7 @@ C_reg_0 = __riscv_vfmv_v_f_f32m1(0.0f,(3));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(3));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(3));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(3));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 }
@@ -495,7 +495,7 @@ C_reg_0 = __riscv_vle32_v_f32m1(&C[0],(3));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(3));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(3));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(3));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 }
@@ -519,8 +519,8 @@ C_reg_1 = __riscv_vfmv_v_f_f32m1(0.0f,(3));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(3));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(3));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(3));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(3));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(3));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
@@ -545,8 +545,8 @@ C_reg_1 = __riscv_vle32_v_f32m1(&C[ldc],(3));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(3));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(3));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(3));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(3));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(3));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
@@ -573,9 +573,9 @@ C_reg_2 = __riscv_vfmv_v_f_f32m1(0.0f,(3));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(3));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(3));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(3));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(3));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(3));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(3));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(3));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
@@ -603,9 +603,9 @@ C_reg_2 = __riscv_vle32_v_f32m1(&C[(2) * (ldc)],(3));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(3));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(3));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(3));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(3));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(3));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(3));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(3));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
@@ -635,10 +635,10 @@ C_reg_3 = __riscv_vfmv_v_f_f32m1(0.0f,(3));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(3));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(3));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(3));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(3));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(3));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(3));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(3));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(3));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(3));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
@@ -669,10 +669,10 @@ C_reg_3 = __riscv_vle32_v_f32m1(&C[(3) * (ldc)],(3));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(3));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(3));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(3));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(3));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(3));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(3));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(3));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(3));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(3));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(3));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(3));
@@ -697,7 +697,7 @@ C_reg_0 = __riscv_vfmv_v_f_f32m1(0.0f,(4));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(4));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(4));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(4));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 }
@@ -719,7 +719,7 @@ C_reg_0 = __riscv_vle32_v_f32m1(&C[0],(4));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(4));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(4));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(4));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 }
@@ -743,8 +743,8 @@ C_reg_1 = __riscv_vfmv_v_f_f32m1(0.0f,(4));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(4));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(4));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(4));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(4));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(4));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
@@ -769,8 +769,8 @@ C_reg_1 = __riscv_vle32_v_f32m1(&C[ldc],(4));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(4));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(4));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(4));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(4));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(4));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
@@ -797,9 +797,9 @@ C_reg_2 = __riscv_vfmv_v_f_f32m1(0.0f,(4));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(4));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(4));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(4));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(4));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(4));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(4));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(4));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
@@ -827,9 +827,9 @@ C_reg_2 = __riscv_vle32_v_f32m1(&C[(2) * (ldc)],(4));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(4));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(4));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(4));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(4));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(4));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(4));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(4));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
@@ -859,10 +859,10 @@ C_reg_3 = __riscv_vfmv_v_f_f32m1(0.0f,(4));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(4));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(4));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(4));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(4));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(4));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(4));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(4));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(4));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(4));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
@@ -893,10 +893,10 @@ C_reg_3 = __riscv_vle32_v_f32m1(&C[(3) * (ldc)],(4));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(4));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(4));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(4));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(4));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(4));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(4));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(4));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(4));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(4));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(4));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(4));
@@ -921,7 +921,7 @@ C_reg_0 = __riscv_vfmv_v_f_f32m1(0.0f,(5));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(5));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(5));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(5));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(5));
 }
@@ -943,7 +943,7 @@ C_reg_0 = __riscv_vle32_v_f32m1(&C[0],(5));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(5));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(5));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(5));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(5));
 }
@@ -967,8 +967,8 @@ C_reg_1 = __riscv_vfmv_v_f_f32m1(0.0f,(5));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(5));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(5));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(5));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(5));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(5));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(5));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(5));
@@ -993,8 +993,8 @@ C_reg_1 = __riscv_vle32_v_f32m1(&C[ldc],(5));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(5));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(5));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(5));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(5));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(5));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(5));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(5));
@@ -1021,9 +1021,9 @@ C_reg_2 = __riscv_vfmv_v_f_f32m1(0.0f,(5));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(5));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(5));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(5));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(5));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(5));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(5));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(5));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(5));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(5));
@@ -1051,9 +1051,9 @@ C_reg_2 = __riscv_vle32_v_f32m1(&C[(2) * (ldc)],(5));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(5));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(5));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(5));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(5));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(5));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(5));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(5));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(5));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(5));
@@ -1083,10 +1083,10 @@ C_reg_3 = __riscv_vfmv_v_f_f32m1(0.0f,(5));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(5));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(5));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(5));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(5));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(5));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(5));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(5));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(5));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(5));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(5));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(5));
@@ -1117,10 +1117,10 @@ C_reg_3 = __riscv_vle32_v_f32m1(&C[(3) * (ldc)],(5));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(5));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(5));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(5));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(5));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(5));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(5));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(5));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(5));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(5));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(5));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(5));
@@ -1145,7 +1145,7 @@ C_reg_0 = __riscv_vfmv_v_f_f32m1(0.0f,(6));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(6));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(6));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(6));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(6));
 }
@@ -1167,7 +1167,7 @@ C_reg_0 = __riscv_vle32_v_f32m1(&C[0],(6));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(6));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(6));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(6));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(6));
 }
@@ -1191,8 +1191,8 @@ C_reg_1 = __riscv_vfmv_v_f_f32m1(0.0f,(6));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(6));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(6));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(6));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(6));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(6));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(6));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(6));
@@ -1217,8 +1217,8 @@ C_reg_1 = __riscv_vle32_v_f32m1(&C[ldc],(6));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(6));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(6));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(6));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(6));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(6));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(6));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(6));
@@ -1245,9 +1245,9 @@ C_reg_2 = __riscv_vfmv_v_f_f32m1(0.0f,(6));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(6));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(6));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(6));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(6));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(6));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(6));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(6));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(6));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(6));
@@ -1275,9 +1275,9 @@ C_reg_2 = __riscv_vle32_v_f32m1(&C[(2) * (ldc)],(6));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(6));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(6));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(6));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(6));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(6));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(6));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(6));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(6));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(6));
@@ -1307,10 +1307,10 @@ C_reg_3 = __riscv_vfmv_v_f_f32m1(0.0f,(6));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(6));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(6));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(6));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(6));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(6));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(6));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(6));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(6));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(6));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(6));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(6));
@@ -1341,10 +1341,10 @@ C_reg_3 = __riscv_vle32_v_f32m1(&C[(3) * (ldc)],(6));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(6));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(6));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(6));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(6));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(6));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(6));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(6));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(6));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(6));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(6));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(6));
@@ -1369,7 +1369,7 @@ C_reg_0 = __riscv_vfmv_v_f_f32m1(0.0f,(7));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(7));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(7));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(7));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(7));
 }
@@ -1391,7 +1391,7 @@ C_reg_0 = __riscv_vle32_v_f32m1(&C[0],(7));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(7));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(7));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(7));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(7));
 }
@@ -1415,8 +1415,8 @@ C_reg_1 = __riscv_vfmv_v_f_f32m1(0.0f,(7));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(7));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(7));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(7));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(7));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(7));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(7));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(7));
@@ -1441,8 +1441,8 @@ C_reg_1 = __riscv_vle32_v_f32m1(&C[ldc],(7));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(7));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(7));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(7));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(7));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(7));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(7));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(7));
@@ -1469,9 +1469,9 @@ C_reg_2 = __riscv_vfmv_v_f_f32m1(0.0f,(7));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(7));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(7));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(7));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(7));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(7));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(7));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(7));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(7));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(7));
@@ -1499,9 +1499,9 @@ C_reg_2 = __riscv_vle32_v_f32m1(&C[(2) * (ldc)],(7));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(7));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(7));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(7));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(7));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(7));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(7));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(7));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(7));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(7));
@@ -1531,10 +1531,10 @@ C_reg_3 = __riscv_vfmv_v_f_f32m1(0.0f,(7));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(7));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(7));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(7));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(7));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(7));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(7));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(7));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(7));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(7));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(7));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(7));
@@ -1565,10 +1565,10 @@ C_reg_3 = __riscv_vle32_v_f32m1(&C[(3) * (ldc)],(7));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(7));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(7));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(7));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(7));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(7));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(7));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(7));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(7));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(7));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(7));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(7));
@@ -1593,7 +1593,7 @@ C_reg_0 = __riscv_vfmv_v_f_f32m1(0.0f,(8));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(8));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(8));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(8));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(8));
 }
@@ -1615,7 +1615,7 @@ C_reg_0 = __riscv_vle32_v_f32m1(&C[0],(8));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(8));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(8));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(8));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(8));
 }
@@ -1639,8 +1639,8 @@ C_reg_1 = __riscv_vfmv_v_f_f32m1(0.0f,(8));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(8));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(8));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(8));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(8));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(8));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(8));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(8));
@@ -1665,8 +1665,8 @@ C_reg_1 = __riscv_vle32_v_f32m1(&C[ldc],(8));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(8));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(8));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(8));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(8));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(8));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(8));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(8));
@@ -1693,9 +1693,9 @@ C_reg_2 = __riscv_vfmv_v_f_f32m1(0.0f,(8));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(8));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(8));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(8));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(8));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(8));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(8));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(8));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(8));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(8));
@@ -1723,9 +1723,9 @@ C_reg_2 = __riscv_vle32_v_f32m1(&C[(2) * (ldc)],(8));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(8));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(8));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(8));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(8));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(8));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(8));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(8));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(8));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(8));
@@ -1755,10 +1755,10 @@ C_reg_3 = __riscv_vfmv_v_f_f32m1(0.0f,(8));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(8));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(8));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(8));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(8));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(8));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(8));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(8));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(8));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(8));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(8));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(8));
@@ -1789,10 +1789,10 @@ C_reg_3 = __riscv_vle32_v_f32m1(&C[(3) * (ldc)],(8));
 vfloat32m1_t A_reg;
 for (int_fast32_t k = 0; k < KC; k++) {
   A_reg = __riscv_vle32_v_f32m1(&A[(k) * (8)],(8));
-  C_reg_0 = __riscv_vfmacc_vf_f32m1C_reg_0, B[(k) * (4)], A_reg,(8));
-  C_reg_1 = __riscv_vfmacc_vf_f32m1C_reg_1, B[(k) * (4) + 1], A_reg,(8));
-  C_reg_2 = __riscv_vfmacc_vf_f32m1C_reg_2, B[(k) * (4) + 2], A_reg,(8));
-  C_reg_3 = __riscv_vfmacc_vf_f32m1C_reg_3, B[(k) * (4) + 3], A_reg,(8));
+  C_reg_0 = __riscv_vfmacc_vf_f32m1(C_reg_0, B[(k) * (4)], A_reg,(8));
+  C_reg_1 = __riscv_vfmacc_vf_f32m1(C_reg_1, B[(k) * (4) + 1], A_reg,(8));
+  C_reg_2 = __riscv_vfmacc_vf_f32m1(C_reg_2, B[(k) * (4) + 2], A_reg,(8));
+  C_reg_3 = __riscv_vfmacc_vf_f32m1(C_reg_3, B[(k) * (4) + 3], A_reg,(8));
 }
 __riscv_vse32_v_f32m1(&C[0], C_reg_0,(8));
 __riscv_vse32_v_f32m1(&C[ldc], C_reg_1,(8));
@@ -1808,7 +1808,7 @@ rvv_broadcast_8xf32_0(dst,vl)
 
 /* relying on the following instruction..."
 rvv_vfmacc_8xf32_1xf32(dst,lhs,rhs,vl)
-{dst_data} = __riscv_vfmacc_vf_f32m1{dst_data}, {rhs_data}, {lhs_data},{vl});
+{dst_data} = __riscv_vfmacc_vf_f32m1({dst_data}, {rhs_data}, {lhs_data},{vl});
 */
 
 /* relying on the following instruction..."
