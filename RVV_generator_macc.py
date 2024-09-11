@@ -411,7 +411,7 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, loadB=0, unroll=1):
        p = simplify(p)
        return p
 
-    if NR < LANE:
+    if NR < LANE and loadB == 1:
         loadB = 0
     p = p.partial_eval(MR=MR,NR=NR)
     p = simplify(p)

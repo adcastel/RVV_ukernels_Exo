@@ -8,27 +8,30 @@ do
     export RVV_BITS=${bits}
     for prec in 32 16; 
     do 
-      for swap in 0; 
-      do  
-        for gather in 2; 
-	      do 
+      for gather in 2 0 1; 
+	    do 
+	     for swap in 0 1; # faltara el 1 
+       do 
+          if  [ ${gather} -eq 2 ]; then
+          	swap=0
+          fi
 	        if [ $prec = 32 ]; then
        	    if [ $bits = 128 ]; then
 	            ini=4
 	            end=32
 	            step=4
 	            lane=4
-	            ininr=4
+	            ininr=2
 	            endnr=32
-	            stepnr=4
+	            stepnr=2
 	          else
 	            ini=8
-	            end=32
+	            end=48
 	            step=8
 	            lane=8
-	            ininr=4
+	            ininr=2
 	            endnr=32
-	            stepnr=4
+	            stepnr=2
 	          fi
 	        else #fp16
        	    if [ $bits = 128 ]; then
@@ -36,18 +39,17 @@ do
 	            end=64
 	            step=8
 	            lane=8
-	            ininr=4
+	            ininr=2
 	            endnr=64
-	            stepnr=4
+	            stepnr=2
 	     	    else
 	            ini=16
-	            ininr=4
-	            end=128
+	            end=96
 	            step=16
 	            lane=16
-	            ininr=4
-	            endnr=128
-	            stepnr=4
+	            ininr=2
+	            endnr=64
+	            stepnr=2
 	     	    fi
 	        fi
 	        if [ ${swap} -eq 1 ]; then
@@ -75,6 +77,13 @@ do
 	            destopt=kernels/${ARCH}_${bits}_OPT/fp${prec}/${mr}x${nr}/loadAB/${gg}
               mkdir -p ${destldX}
               mkdir -p ${destopt}
+              #if [ ${gather} -eq 2 ]; then #queremos sustituir lo que no se ha generado bien con el macc
+                  #rm -rf ${dest}
+                  #rm -rf ${destldX}
+                  #rm -rf ${destopt}
+              #    mkdir -p ${destldX}
+              #    mkdir -p ${destopt}
+              #fi
               if ! test -f ${dest}/${ff}.c; then
 	              echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 1 60 | exocc -o ${dest} --stem ${ff} RVV_generator_macc.py" 
 	              echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 1 60" | exocc -o ${dest} --stem ${ff} RVV_generator_macc.py
@@ -100,9 +109,15 @@ do
 	            echo "python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather} OPT"
 	            python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather} OPT
               
-              cp -r ${dest} kernels/${ARCH}_${bits}_BASE/fp${prec}/${mr}x${nr}/loadBA/
-              cp -r ${destldX} kernels/${ARCH}_${bits}_LDX/fp${prec}/${mr}x${nr}/loadBA/
-              cp -r ${destopt} kernels/${ARCH}_${bits}_OPT/fp${prec}/${mr}x${nr}/loadBA/
+              #echo "cp -r ${dest} kernels/${ARCH}_${bits}_BASE/fp${prec}/${mr}x${nr}/loadBA/"
+              if [ ${gather} -eq 2 ]; then #queremos sustituir lo que no se ha generado bien con el macc
+                  mkdir -p kernels/${ARCH}_${bits}_BASE/fp${prec}/${mr}x${nr}/loadBA
+                  mkdir -p kernels/${ARCH}_${bits}_LDX/fp${prec}/${mr}x${nr}/loadBA
+                  mkdir -p kernels/${ARCH}_${bits}_OPT/fp${prec}/${mr}x${nr}/loadBA
+                  cp -r ${dest} kernels/${ARCH}_${bits}_BASE/fp${prec}/${mr}x${nr}/loadBA
+                  cp -r ${destldX} kernels/${ARCH}_${bits}_LDX/fp${prec}/${mr}x${nr}/loadBA
+                  cp -r ${destopt} kernels/${ARCH}_${bits}_OPT/fp${prec}/${mr}x${nr}/loadBA
+              fi
             done;
 	        done;
         done;
