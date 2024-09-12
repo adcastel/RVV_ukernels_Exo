@@ -8,7 +8,7 @@ do
     export RVV_BITS=${bits}
     for prec in 32 16; 
     do 
-      for gather in 2 0 1; 
+      for gather in 0 1 2; 
 	    do 
 	     for swap in 0 1; # faltara el 1 
        do 
@@ -72,9 +72,9 @@ do
 	          for nr in $(seq ${ininr} ${stepnr} ${endnr});
 	          do	    
 	            ff=kernels_${ARCH}_${mr}x${nr}_fp${prec}
-	            dest=kernels/${ARCH}_${bits}_BASE/fp${prec}/${mr}x${nr}/loadAB/${gg}
-	            destldX=kernels/${ARCH}_${bits}_LDX/fp${prec}/${mr}x${nr}/loadAB/${gg}
-	            destopt=kernels/${ARCH}_${bits}_OPT/fp${prec}/${mr}x${nr}/loadAB/${gg}
+	            dest=kernels/${ARCH}_${bits}_BASE/fp${prec}/${mr}x${nr}/${ss}/${gg}
+	            destldX=kernels/${ARCH}_${bits}_LDX/fp${prec}/${mr}x${nr}/${ss}/${gg}
+	            destopt=kernels/${ARCH}_${bits}_OPT/fp${prec}/${mr}x${nr}/${ss}/${gg}
               mkdir -p ${destldX}
               mkdir -p ${destopt}
               #if [ ${gather} -eq 2 ]; then #queremos sustituir lo que no se ha generado bien con el macc
@@ -87,7 +87,10 @@ do
               if ! test -f ${dest}/${ff}.c; then
 	              echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 1 60 | exocc -o ${dest} --stem ${ff} RVV_generator_macc.py" 
 	              echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 1 60" | exocc -o ${dest} --stem ${ff} RVV_generator_macc.py
-	              if test -f ${dest}/${ff}.c; then
+	            else
+	              echo "${dest}/${ff} already exists"
+	            fi
+	            if test -f ${dest}/${ff}.c; then
 	                echo "python3 exo_to_opt_converter.py ${dest}/${ff}.c ${destldX}/${ff}.c 0 ${mr} ${nr} ${prec} ${ARCH}"
 	                python3 exo_to_opt_converter.py ${dest}/${ff}.c ${destldX}/${ff}.c 0 ${mr} ${nr} ${prec} ${ARCH}
 	                echo "python3 exo_to_opt_converter.py ${dest}/${ff}.h ${destldX}/${ff}.h 0 ${mr} ${nr} ${prec} ${ARCH}"
@@ -96,13 +99,10 @@ do
 	                python3 exo_to_opt_converter.py ${dest}/${ff}.c ${destopt}/${ff}.c 1 ${mr} ${nr} ${prec} ${ARCH}
 	                echo "python3 exo_to_opt_converter.py ${dest}/${ff}.h ${destopt}/${ff}.h 1 ${mr} ${nr} ${prec} ${ARCH}"
 	                python3 exo_to_opt_converter.py ${dest}/${ff}.h ${destopt}/${ff}.h 1 ${mr} ${nr} ${prec} ${ARCH}
-	              else
-	                echo "${mr}x${nr} has not been build"
-	              fi
-              else
-	              echo "${dest}/${ff} already exists"
+	            else
+	              echo "${mr}x${nr} has not been build"
 	            fi
-	            echo "python3 generate_matrix_base.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}"
+              echo "python3 generate_matrix_base.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}"
 	            python3 generate_matrix_base.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather}
 	            echo "python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather} LDX"
 	            python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather} LDX
