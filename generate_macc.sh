@@ -3,7 +3,7 @@
 mode=OPT
 for ARCH in RVV
 do
-  for bits in 256 128;
+  for bits in 128 256;
   do
     export RVV_BITS=${bits}
     for prec in 32 16; 
