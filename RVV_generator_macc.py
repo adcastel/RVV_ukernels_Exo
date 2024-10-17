@@ -596,7 +596,7 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, loadB=0, unroll=1):
             p = moveup(p, "A_reg3: _")
         
     
-    if loadB == 1:
+    if loadB == 1:  #gather
         scal = 'B'
         scr = '{}_reg'.format(scal)
         scrtmp = '{}_tmp'.format(scal)
@@ -831,6 +831,7 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, loadB=0, unroll=1):
             p = replace(p,p.find('for jtt in _:_ #1'),intrinsics['load'])
             p = simplify(p)
             p = replace(p,p.find('for itt in _:_ #2'), intrinsics['gather'])
+     
         else:
             p = replace(p,p.find('for jtt in _:_ #2'),intrinsics['load'])
             p = replace(p,p.find('for jtt in _:_ #3'),intrinsics['load'])
@@ -870,7 +871,7 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, loadB=0, unroll=1):
     else: #macc
         pass
 
-
+    
     if MR % LANE != 0:
         p = make_tail(p, (MR//LANE)*LANE, loadB)
 
@@ -1001,6 +1002,7 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, loadB=0, unroll=1):
 
         p = replace_all(p,intrinsics['zeros'])
         p = replace_all(p,intrinsics['bcast'])
+        
         p = replace_all(p,intrinsics['load'])
         if loadB == 2:
             p = replace_all(p,intrinsics['macc'])
@@ -1041,6 +1043,8 @@ def ukr_rvv(MR,NR,prec,LANE,beta0,swapAB=False, loadB=0, unroll=1):
     if unroll > 1:
         p =  divide_loop(p,'k', unroll, ['kt','ktt'], tail='cut')
         p = unroll_loop(p, "ktt")
+
+
     return p
 
 
