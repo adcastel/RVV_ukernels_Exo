@@ -1,11 +1,7 @@
 # RVV_ukernels_Exo
 
+This is an Exo-based generator of General Matrix Multiplication Micro-kernels for RISC-V devices.
 
-#HOW TO USE IT
+## File
+-- RVV_generator.py is the generator itself.
 
-1) make
-
-2)./test_uk m_ini m_end n_ini n_end k reps
-
-if reps == 1 -> TEST
-else -> Evaluation
