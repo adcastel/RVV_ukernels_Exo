@@ -77,13 +77,7 @@ do
 	            destopt=kernels/${ARCH}_${bits}_OPT/fp${prec}/${mr}x${nr}/${ss}/${gg}
               mkdir -p ${destldX}
               mkdir -p ${destopt}
-              #if [ ${gather} -eq 2 ]; then #queremos sustituir lo que no se ha generado bien con el macc
-                  #rm -rf ${dest}
-                  #rm -rf ${destldX}
-                  #rm -rf ${destopt}
-              #    mkdir -p ${destldX}
-              #    mkdir -p ${destopt}
-              #fi
+              
               if ! test -f ${dest}/${ff}.c; then
 	              echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 1 60 | exocc -o ${dest} --stem ${ff} RVV_generator_macc.py" 
 	              echo "${mr} ${nr} ${lane} ${prec} ${swap} ${gather} 1 60" | exocc -o ${dest} --stem ${ff} RVV_generator_macc.py
@@ -109,7 +103,6 @@ do
 	            echo "python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather} OPT"
 	            python3 generate_matrix.py ${mr} ${nr} ${lane} ${ARCH} fp${prec} fp${prec} fp${prec} ${swap} ${gather} OPT
               
-              #echo "cp -r ${dest} kernels/${ARCH}_${bits}_BASE/fp${prec}/${mr}x${nr}/loadBA/"
               if [ ${gather} -eq 2 ]; then #queremos sustituir lo que no se ha generado bien con el macc
                   mkdir -p kernels/${ARCH}_${bits}_BASE/fp${prec}/${mr}x${nr}/loadBA
                   mkdir -p kernels/${ARCH}_${bits}_LDX/fp${prec}/${mr}x${nr}/loadBA
