@@ -1071,12 +1071,13 @@ nr = enr = n
 print(m, n, lane, pre, swapAB, loadB)
 maxi = maxj = 0
 
-if howmanyregs(emr, enr, lane, loadB) <= regs:
+if True: #howmanyregs(emr, enr, lane, loadB) <= regs:
     for i in range(1,mr+1,1):
         for j in range(1,nr+1,1):
-            print("GENERATING {}x{} with {} registers".format(i,j, howmanyregs(i,j,lane, loadB)))
-            locals()['uk_{0}x{1}_b{2}'.format(i,j,False)] = ukr_rvv(MR=i, NR=j, prec=pr, LANE = lane, beta0=False, swapAB=swapAB, loadB=loadB, unroll=unroll)
-            locals()['uk_{0}x{1}_b{2}'.format(i,j,True)]  = ukr_rvv(MR=i, NR=j, prec=pr, LANE = lane, beta0=True,  swapAB=swapAB, loadB=loadB, unroll=unroll)
+            if howmanyregs(i, j, lane, loadB) <= regs:
+                print("GENERATING {}x{} with {} registers".format(i,j, howmanyregs(i,j,lane, loadB)))
+                locals()['uk_{0}x{1}_b{2}'.format(i,j,False)] = ukr_rvv(MR=i, NR=j, prec=pr, LANE = lane, beta0=False, swapAB=swapAB, loadB=loadB, unroll=unroll)
+                locals()['uk_{0}x{1}_b{2}'.format(i,j,True)]  = ukr_rvv(MR=i, NR=j, prec=pr, LANE = lane, beta0=True,  swapAB=swapAB, loadB=loadB, unroll=unroll)
 
 #from generate_matrix import generate_file
 

@@ -5,15 +5,19 @@ import argparse
 import math
 import os
 
-def how(M,N, lane, arch):
-    if arch == "NEON":
-        if M % lane != 0:
-            M = math.ceil(M/lane)*lane
-        if N % lane != 0:
-            N = math.ceil(N/lane)*lane
+def how(M,N, lane, arch,loadB):
+    #if arch == "NEON":
+   #     if M % lane != 0:
+    #        M = math.ceil(M/lane)*lane
+   #     if N % lane != 0:
+   #         N = math.ceil(N/lane)*lane
 
     reg_a = M//lane if M % lane == 0 else M//lane + 1
-    reg_b = N if arch == "RVV" else N//lane
+    #reg_b = N if arch == "RVV" else N//lane
+    if loadB == "gather":
+        reg_b = 0
+    else:
+        reg_b = N 
     reg_c = N *  (M//lane if M % lane == 0 else M//lane + 1)
     
     return reg_a + reg_b + reg_c
@@ -46,7 +50,8 @@ def generate_file(MR, NR, LANE, arch, precA, precB, precC ,dest, bits, ss, gg):
         return
     try:
         with open("{}/exo_matrix_{}_{}.h".format(dest,arch, precC), 'w') as f:
-            f.write(f"#include \"kernels_{arch}_{MR}x{NR}_{precC}.h\"\n")
+            #f.write(f"#include \"kernels_{arch}_{MR}x{NR}_{precC}.h\"\n")
+            f.write(f"#include \"kernels_{arch}_{precC}.h\"\n")
             f.write(f"#include <stdlib.h>\n")
             #f.write(f"typedef void (*ukrFunction)( void *ctxt, int_fast32_t KC, const {dataA}* alpha, {dataA} * A, int lda , {dataB} * B, int ldb, const {dataC}* beta, {dataC} *C, int ldc);\n")
             ddA= "f32" if precA == "fp32" else "f16"
@@ -85,7 +90,7 @@ def generate_file(MR, NR, LANE, arch, precA, precB, precC ,dest, bits, ss, gg):
         for m in range(0,MR+1):
             for n in range(0,NR+1):
                 for b in range(0,2):
-                    if m == 0 or n == 0: # or how(m, n, LANE, arch) > 50:
+                    if m == 0 or n == 0 or how(m, n, LANE, arch, gg) > 40:
                         f.write("{}*matrix[{}][{}][{}] = \t(ukrFunction)NULL;\n".format(tab,m,n,b))
                     else:
                         f.write("{}*matrix[{}][{}][{}] = \t(ukrFunction)gemm_{}_{}x{}_b{}_col_{};\n".format(tab,m,n,b,arch,m,n,b,precC))
@@ -149,7 +154,7 @@ def main():
     gg = "gather" if args.gather == 1 else "bcast"
     if args.gather == 2:
         gg = "macc"
-    dest=f"kernels/{arch}_{bits}_BASE/{precC}/{MR}x{NR}/{ss}/{gg}"
+    dest=f"kernels/{arch}_{bits}_BASE_ALL/{precC}/{MR}x{NR}/{ss}/{gg}"
     if gettype(precA) == "" or gettype(precB) == "" or gettype(precC) == "":
         print("Error data type")
     print("Generating file in {}".format(dest))
