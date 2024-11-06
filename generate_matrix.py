@@ -13,7 +13,7 @@ def how(M,N, lane, arch, loadB):
             N = math.ceil(N/lane)*lane
 
     reg_a = M//lane if M % lane == 0 else M//lane + 1
-    if loadB == "gather":
+    if loadB == "macc":
         reg_b = 0
     else:
         reg_b = N if arch == "RVV" else N//lane
@@ -151,7 +151,7 @@ def main():
     if args.gather == 2:
         gg = "macc"
     
-    dest=f"kernels/{arch}_{bits}_{mode}_ALL/{precC}/{MR}x{NR}/{ss}/{gg}"
+    dest="." #f"kernels/{arch}_{bits}_{mode}_ALL/{precC}/{MR}x{NR}/{ss}/{gg}"
     if gettype(precA) == "" or gettype(precB) == "" or gettype(precC) == "":
         print("Error data type")
     generate_file(MR, NR, LANE, arch, precA, precB, precC ,dest, bits, ss, gg)

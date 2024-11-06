@@ -14,7 +14,7 @@ def how(M,N, lane, arch,loadB):
 
     reg_a = M//lane if M % lane == 0 else M//lane + 1
     #reg_b = N if arch == "RVV" else N//lane
-    if loadB == "gather":
+    if loadB == "macc":
         reg_b = 0
     else:
         reg_b = N 
